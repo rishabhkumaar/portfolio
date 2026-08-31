@@ -1,0 +1,39 @@
+ ____  ___ ____  _   _    _    ____  _   _
+|  _ \|_ _/ ___|| | | |  / \  | __ )| | | |
+| |_) || |\___ \| |_| | / _ \ |  _ \| |_| |
+|  _ < | | ___) |  _  |/ ___ \| |_) |  _  |
+|_| \_\___|____/|_| |_/_/   \_\____/|_| |_|
+
+The humans.txt file explains the engineer, technology,
+and graphic assets behind this site humanstxt.org.
+
+_______________________________________________________________________________
+
+ENGINEER & DEVELOPER | 開発者
+
+Rishabh Kumar
+Computer Science Undergraduate | Software Engineer | Full-Stack Developer
+
+Connect:
+github.com/rishabhkumaar
+linkedin.com/in/rishabhkumaar
+Email: kumar.r.070706@gmail.com
+
+_______________________________________________________________________________
+
+TECHNOLOGY | テクノロジー
+
+Python & discord.py
+React & Next.js
+Remix & Cloudflare Pages
+TypeScript & JavaScript
+PostgreSQL, Prisma & Firebase
+Three.js & Framer Motion
+
+_______________________________________________________________________________
+
+FONTS | フォント
+
+Gotham
+IPA Gothic Regular
+Hiragino Kaku Gothic W8

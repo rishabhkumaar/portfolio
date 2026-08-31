@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rishabh Kumar // Software Engineer & Systems Architect</title>
+  <meta name="description" content="Cinematic engineering portfolio of Rishabh Kumar — Computer Science Undergraduate at LPU (CGPA 9.89/10), Software Engineer, and Full-Stack Developer. Architect of Rishource, Courses Glance, and distributed systems.">
+  <meta name="keywords" content="Rishabh Kumar, Software Engineer, Full-Stack Developer, Computer Science, Discord Bot, Rishource, Next.js, Python, PostgreSQL, React, Systems Architecture">
+  <meta name="author" content="Rishabh Kumar">
+  <meta property="og:title" content="Rishabh Kumar // Systems Architect & Software Engineer">
+  <meta property="og:description" content="Learning → Engineering → Building → Rishource → What Comes Next. Explore production systems, real-time simulators, and engineering journey.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="personal/image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="personal/fevicon.ico">
+  <link rel="icon" type="image/png" href="personal/fevicon.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-obsidian text-slate-200 antialiased selection:bg-cyan-500 selection:text-black">
+
+  <!-- SYSTEM BOOT PRELOADER -->
+  <div id="preloader" class="preloader-overlay" aria-hidden="true">
+    <div class="preloader-content">
+      <div class="preloader-terminal">
+        <div class="preloader-header">
+          <span class="p-dot dot-red"></span>
+          <span class="p-dot dot-yellow"></span>
+          <span class="p-dot dot-green"></span>
+          <span class="p-title">INITIALIZING SYS // RK-2026-X</span>
+        </div>
+        <div class="preloader-logs" id="preloaderLogs">
+          <div class="p-log">[0.000s] MOUNTING KERNEL ... OK</div>
+          <div class="p-log">[0.042s] DISCOVERING ASYNC POSTGRESQL POOL ... OK</div>
+          <div class="p-log">[0.088s] CALIBRATING 12 AUTOSHARDED WORKERS ... OK</div>
+          <div class="p-log">[0.140s] LOADING NODE-CACHE TTL ENGINE ... OK</div>
+          <div class="p-log">[0.198s] INITIALIZING 3D PARTICLE FIELD ... OK</div>
+          <div class="p-log text-cyan">[0.260s] RISHABH KUMAR DIGITAL IDENTITY // READY</div>
+        </div>
+        <div class="preloader-progress-bar">
+          <div class="progress-fill" id="preloaderProgress"></div>
+        </div>
+      </div>
+      <button id="skipPreloaderBtn" class="preloader-enter-btn">
+        <span>ENTER WORKSPACE [SPACE]</span>
+        <span class="enter-arrow">➔</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MAGNETIC DUAL CURSOR -->
+  <div id="cursorDot" class="cursor-dot" aria-hidden="true"></div>
+  <div id="cursorRing" class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- INTERACTIVE 3D PARTICLE CANVAS & CYBER GRID -->
+  <canvas id="bgCanvas" class="background-canvas" aria-hidden="true"></canvas>
+  <div class="cyber-grid-overlay" aria-hidden="true"></div>
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+  <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
+
+  <!-- FIXED COMMAND NAVIGATION BAR -->
+  <header class="fixed-nav" id="mainHeader">
+    <div class="nav-container">
+      <a href="#hero" class="brand-badge" aria-label="Rishabh Kumar Systems" data-cursor="link">
+        <span class="brand-monogram">RK</span>
+        <div class="brand-text">
+          <span class="brand-name">RISHABH KUMAR</span>
+          <span class="brand-role">SYS // ARCHITECT</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="#about" class="nav-link" data-cursor="link">About</a>
+        <a href="#story" class="nav-link" data-cursor="link">Story</a>
+        <a href="#rishource" class="nav-link" data-cursor="link"><span class="text-cyan">Rishource</span></a>
+        <a href="#projects" class="nav-link" data-cursor="link">Systems</a>
+        <a href="#skills" class="nav-link" data-cursor="link">Stack</a>
+        <a href="#achievements" class="nav-link" data-cursor="link">Proof</a>
+        <a href="#certifications" class="nav-link" data-cursor="link">Credentials</a>
+        <a href="#education" class="nav-link" data-cursor="link">Education</a>
+        <a href="#contact" class="nav-link" data-cursor="link">Contact</a>
+      </nav>
+
+      <!-- Nav Controls -->
+      <div class="nav-actions">
+        <!-- Audio Synth Toggle -->
+        <button id="audioToggleBtn" class="audio-toggle-btn" title="Toggle UI Sound Synthesizer" aria-label="Toggle UI Audio" data-cursor="link">
+          <div class="sound-bars">
+            <span class="s-bar"></span>
+            <span class="s-bar"></span>
+            <span class="s-bar"></span>
+          </div>
+          <span class="sound-label" id="soundLabel">SFX: OFF</span>
+        </button>
+
+        <!-- Live Status Chip -->
+        <div class="live-status-chip" title="Current Status: Available for High-Impact Software Engineering Roles">
+          <span class="status-indicator-dot"></span>
+          <span class="status-text">Available</span>
+          <span class="time-readout" id="istClock">IST --:--</span>
+        </div>
+
+        <!-- Terminal CLI Trigger -->
+        <button id="terminalTriggerBtn" class="action-btn terminal-btn" aria-label="Toggle Developer Terminal CLI" data-cursor="link">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          <span>CLI HUD [~]</span>
+        </button>
+
+        <!-- Resume Download -->
+        <a href="personal/cv.pdf" target="_blank" download="Rishabh_Kumar_CV.pdf" class="action-btn resume-btn" data-cursor="link">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <span>Resume</span>
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle Mobile Menu" aria-expanded="false" data-cursor="link">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="mobile-drawer hidden">
+      <nav class="mobile-nav-links">
+        <a href="#about" class="mob-link">About</a>
+        <a href="#story" class="mob-link">Engineering Story</a>
+        <a href="#rishource" class="mob-link">Flagship: Rishource</a>
+        <a href="#projects" class="mob-link">Engineered Systems</a>
+        <a href="#skills" class="mob-link">Technical Stack</a>
+        <a href="#achievements" class="mob-link">Proof of Progress</a>
+        <a href="#certifications" class="mob-link">Credentials</a>
+        <a href="#education" class="mob-link">Education</a>
+        <a href="#contact" class="mob-link">Contact</a>
+      </nav>
+      <div class="mobile-drawer-footer">
+        <a href="personal/cv.pdf" target="_blank" download="Rishabh_Kumar_CV.pdf" class="btn btn-secondary w-full">Download Resume (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- KINETIC TELEMETRY MARQUEE TICKER -->
+  <div class="kinetic-ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item">LPU B.TECH CSE // CGPA 9.89/10</span>
+      <span class="ticker-separator">✦</span>
+      <span class="ticker-item">200+ CODING PROBLEMS SOLVED</span>
+      <span class="ticker-separator">✦</span>
+      <span class="ticker-item">RISHOURCE // AUTOSHARDED BOT PLATFORM</span>
+      <span class="ticker-separator">✦</span>
+      <span class="ticker-item">HACKERRANK GOLD IN PYTHON</span>
+      <span class="ticker-separator">✦</span>
+      <span class="ticker-item">LEETCODE 50-DAYS BADGE</span>
+      <span class="ticker-separator">✦</span>
+      <span class="ticker-item">ASYNC POSTGRESQL &amp; NODE-CACHE TTL</span>
+      <span class="ticker-separator">✦</span>
+      <span class="ticker-item">KV AMBALA // 90.6% HIGHER SECONDARY</span>
+      <span class="ticker-separator">✦</span>
+      <!-- Repeated for seamless loop -->
+      <span class="ticker-item">LPU B.TECH CSE // CGPA 9.89/10</span>
+      <span class="ticker-separator">✦</span>
+      <span class="ticker-item">200+ CODING PROBLEMS SOLVED</span>
+      <span class="ticker-separator">✦</span>
+      <span class="ticker-item">RISHOURCE // AUTOSHARDED BOT PLATFORM</span>
+      <span class="ticker-separator">✦</span>
+      <span class="ticker-item">HACKERRANK GOLD IN PYTHON</span>
+      <span class="ticker-separator">✦</span>
+      <span class="ticker-item">LEETCODE 50-DAYS BADGE</span>
+      <span class="ticker-separator">✦</span>
+      <span class="ticker-item">ASYNC POSTGRESQL &amp; NODE-CACHE TTL</span>
+      <span class="ticker-separator">✦</span>
+      <span class="ticker-item">KV AMBALA // 90.6% HIGHER SECONDARY</span>
+      <span class="ticker-separator">✦</span>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO SECTION: Monumental Digital Identity HUD -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-layout">
+        
+        <!-- Left Hero Content -->
+        <div class="hero-content">
+          <div class="system-tag-pill" data-cursor="hover">
+            <span class="radar-dot"></span>
+            <span class="tag-label">SYSTEMS ARCHITECT &amp; SOFTWARE ENGINEER</span>
+          </div>
+
+          <h1 class="monumental-headline">
+            <span class="headline-block">ENGINEER</span>
+            <span class="headline-block gradient-text-cyan">THE CORE.</span>
+            <span class="headline-sub-title">SCALE WHAT’S NEXT.</span>
+          </h1>
+
+          <p class="hero-tagline">
+            I am <strong class="text-white">Rishabh Kumar</strong>, a Computer Science undergraduate at 
+            <span class="highlight-pill">Lovely Professional University</span> with a <strong>9.89 / 10 CGPA</strong>. 
+            I build high-concurrency automation backends, distributed Discord architectures, and resilient full-stack platforms 
+            engineered to handle asynchronous loads, caching fallbacks, and real-world scale.
+          </p>
+
+          <!-- Core Telemetry Stat Tiles -->
+          <div class="hero-telemetry-grid">
+            <div class="telemetry-item tilt-card" data-tilt data-cursor="hover">
+              <span class="telemetry-value">9.89<span class="telemetry-sub">/10</span></span>
+              <span class="telemetry-caption">CGPA at LPU</span>
+              <span class="telemetry-bar"><span class="bar-fill" style="width: 98.9%;"></span></span>
+            </div>
+            <div class="telemetry-item tilt-card" data-tilt data-cursor="hover">
+              <span class="telemetry-value">200<span class="telemetry-sub">+</span></span>
+              <span class="telemetry-caption">Problems Solved</span>
+              <span class="telemetry-bar"><span class="bar-fill" style="width: 85%;"></span></span>
+            </div>
+            <div class="telemetry-item tilt-card" data-tilt data-cursor="hover">
+              <span class="telemetry-value">Auto<span class="telemetry-sub">Shard</span></span>
+              <span class="telemetry-caption">Rishource Runtime</span>
+              <span class="telemetry-bar"><span class="bar-fill" style="width: 100%;"></span></span>
+            </div>
+            <div class="telemetry-item tilt-card" data-tilt data-cursor="hover">
+              <span class="telemetry-value">Gold<span class="telemetry-sub">/Py</span></span>
+              <span class="telemetry-caption">HackerRank Certified</span>
+              <span class="telemetry-bar"><span class="bar-fill" style="width: 95%;"></span></span>
+            </div>
+          </div>
+
+          <!-- Hero Action CTAs -->
+          <div class="hero-actions">
+            <a href="#rishource" class="btn btn-primary" data-cursor="button">
+              <span>Inspect Flagship (Rishource)</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+            <a href="#story" class="btn btn-secondary" data-cursor="button">
+              <span>Experience The Story</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+            </a>
+            <button id="openComicModalBtn" class="btn btn-ghost" title="Read the 6-Chapter Graphic Novel Odyssey" data-cursor="button">
+              <span class="comic-icon">🎨</span>
+              <span>Graphic Novel Odyssey</span>
+            </button>
+          </div>
+
+          <!-- Quick Terminal Code Teaser -->
+          <div class="quick-terminal-box">
+            <div class="quick-term-bar">
+              <span class="term-dot dot-red"></span>
+              <span class="term-dot dot-yellow"></span>
+              <span class="term-dot dot-green"></span>
+              <span class="term-file">rishabh@core-system:~$</span>
+            </div>
+            <div class="quick-term-body">
+              <code>$ rishabh.build_stack() <span class="term-cursor">|</span></code>
+              <div class="term-output-preview">
+                ➜ [Python, C++, Next.js, PostgreSQL, Prisma, Node-Cache, Discord OAuth, AutoShardedBot]
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual Identity HUD (3D Tilt Card) -->
+        <div class="hero-visual-col">
+          <div class="engineer-hud-card tilt-card" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="hud-corner hud-tl"></div>
+            <div class="hud-corner hud-tr"></div>
+            <div class="hud-corner hud-bl"></div>
+            <div class="hud-corner hud-br"></div>
+
+            <div class="hud-header">
+              <div class="hud-status-badge">
+                <span class="hud-pulse"></span>
+                <span>SYSTEM ONLINE // CLUSTER ALPHA</span>
+              </div>
+              <span class="hud-serial">NODE // RK-2026</span>
+            </div>
+
+            <!-- Profile Atmospheric Silhouette Artwork -->
+            <div class="hud-avatar-wrapper">
+              <img src="personal/image.png" alt="Rishabh Kumar - Systems Engineer" class="hud-avatar-img">
+              <div class="hud-avatar-overlay"></div>
+              <div class="hud-scanline"></div>
+              
+              <!-- Floating HUD Metric Tags -->
+              <div class="hud-float-chip chip-left">
+                <span class="chip-dot"></span>
+                <span class="chip-text">Async PostgreSQL</span>
+              </div>
+              <div class="hud-float-chip chip-right">
+                <span class="chip-dot dot-purple"></span>
+                <span class="chip-text">15-min Node-Cache TTL</span>
+              </div>
+            </div>
+
+            <!-- Profile Summary Meta -->
+            <div class="hud-footer">
+              <div class="hud-meta-row">
+                <span class="hud-label">ENGINEER:</span>
+                <span class="hud-val">Rishabh Kumar</span>
+              </div>
+              <div class="hud-meta-row">
+                <span class="hud-label">INSTITUTION:</span>
+                <span class="hud-val">Lovely Professional University</span>
+              </div>
+              <div class="hud-meta-row">
+                <span class="hud-label">ACADEMIC STANDING:</span>
+                <span class="hud-val text-green font-bold">9.89 / 10.0 CGPA</span>
+              </div>
+              <div class="hud-meta-row">
+                <span class="hud-label">FLAGSHIP REPO:</span>
+                <span class="hud-val text-cyan">rishabhkumaar/rishource</span>
+              </div>
+            </div>
+
+            <!-- Social Links Strip -->
+            <div class="hud-social-strip">
+              <a href="https://github.com/rishabhkumaar" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="GitHub Profile" data-cursor="link">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+              </a>
+              <a href="https://linkedin.com/in/rishabhkumaar" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="LinkedIn Profile" data-cursor="link">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.6 1.6 0 1 0-.01-3.2 1.6 1.6 0 0 0 .01 3.2m1.4 9.74v-8.37H5.06v8.37h2.8z"/>
+                </svg>
+              </a>
+              <a href="mailto:kumar.r.070706@gmail.com" class="social-icon-link" aria-label="Email Rishabh Directly" data-cursor="link">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </a>
+              <button class="copy-pill-btn" id="quickCopyEmail" data-copy="kumar.r.070706@gmail.com" title="Copy Email" data-cursor="button">
+                <span>Copy Email</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT & CORE ARCHITECTURAL PHILOSOPHY -->
+    <section id="about" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">01 // PHILOSOPHY &amp; PERSPECTIVE</span>
+          <h2 class="section-title">A Blank Screen Isn’t Empty.<br><span class="gradient-text-cyan">It’s An Opportunity To Engineer.</span></h2>
+          <p class="section-desc">
+            Code isn't just about syntax; it's about architecting solutions that survive high concurrency, external rate limits, and network latency.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card narrative-card tilt-card" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <h3 class="card-heading">The Engineer’s Mindset</h3>
+            <p class="about-paragraph">
+              I don’t want to be someone who simply writes code that only works on the happy path. I build software with deep respect for 
+              <strong>concurrency, connection pooling, caching strategies, and graceful degradation</strong>. When external APIs throw 
+              HTTP 429 rate limit exceptions, an engineered system does not crash—it serves stale-while-revalidate data from a 15-minute 
+              memory cache.
+            </p>
+            <p class="about-paragraph">
+              Currently pursuing my B.Tech in Computer Science &amp; Engineering at Lovely Professional University with a <strong>9.89 / 10 CGPA</strong>, 
+              I pair relentless theoretical discipline in algorithms, operating systems, and DBMS with production-grade full-stack execution.
+            </p>
+            
+            <div class="mindset-pillars">
+              <div class="pillar-item">
+                <span class="pillar-code">&lt;01&gt;</span>
+                <div>
+                  <h4 class="pillar-title">Learn By Building</h4>
+                  <p class="pillar-desc">Real mastery comes from debugging race conditions, sharded gateway timeouts, and database locks in real time.</p>
+                </div>
+              </div>
+              <div class="pillar-item">
+                <span class="pillar-code">&lt;02&gt;</span>
+                <div>
+                  <h4 class="pillar-title">Systems Over Scripts</h4>
+                  <p class="pillar-desc">Designing modular micro-architectures with dynamic extension discovery, persistent file logging, and isolated lifecycles.</p>
+                </div>
+              </div>
+              <div class="pillar-item">
+                <span class="pillar-code">&lt;03&gt;</span>
+                <div>
+                  <h4 class="pillar-title">Rigorous Foundations</h4>
+                  <p class="pillar-desc">200+ solved algorithmic problems, HackerRank Gold in Python, Silver in C and SQL, and LeetCode streak discipline.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Specs Card -->
+          <div class="about-card specs-card tilt-card" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="specs-header">
+              <span class="mono-tag">SYSTEM METRICS // PROFILE HUD</span>
+              <span class="specs-dot"></span>
+            </div>
+
+            <div class="specs-list">
+              <div class="spec-row">
+                <span class="spec-label">Name:</span>
+                <span class="spec-val">Rishabh Kumar</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Role:</span>
+                <span class="spec-val text-cyan">CS Undergraduate &amp; Systems Developer</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">University:</span>
+                <span class="spec-val">Lovely Professional University (LPU)</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Current CGPA:</span>
+                <span class="spec-val text-green font-bold">9.89 / 10.0</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Schooling:</span>
+                <span class="spec-val">PM Shree KV No. 2 Ambala (90.6%)</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Core Stack:</span>
+                <span class="spec-val">Python, C++, TypeScript, Next.js, PostgreSQL</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Flagship:</span>
+                <span class="spec-val text-cyan font-bold">Rishource (Modular Discord Platform)</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Status:</span>
+                <span class="spec-val text-green">Available for Software Engineering Roles</span>
+              </div>
+            </div>
+
+            <div class="specs-footer-cta">
+              <button class="btn btn-secondary w-full" id="openVisualStoryBtn" data-cursor="button">
+                <span>View Graphic Novel Odyssey</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5-PHASE CINEMATIC STORY NARRATIVE -->
+    <!-- learning → engineering → building → Rishource → what comes next -->
+    <section id="story" class="section-block bg-subtle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">02 // THE 5-PHASE ENGINEERING ODYSSEY</span>
+          <h2 class="section-title">From A Blank Screen To Scalable Platforms<br><span class="gradient-text-cyan">Learning → Engineering → Building → Rishource → Next</span></h2>
+          <p class="section-desc">
+            A chronological progression through algorithmic mastery, systems architecture, practical software execution, and scaling the flagship platform.
+          </p>
+        </div>
+
+        <div class="cinematic-timeline">
+          
+          <!-- PHASE 01: LEARNING -->
+          <div class="timeline-chapter-card tilt-card" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="chapter-badge">
+              <span class="chapter-num">PHASE 01</span>
+              <span class="chapter-title">LEARNING</span>
+              <span class="chapter-date">2023 – 2024</span>
+            </div>
+            <div class="chapter-body">
+              <h3 class="chapter-heading">Algorithmic First Principles &amp; Unshakeable Foundations</h3>
+              <p class="chapter-text">
+                Every builder starts at the blank screen. Before assembling complex distributed architectures, I established 
+                uncompromising foundational discipline. Graduating from <strong>PM Shree Kendriya Vidyalaya No. 2, Ambala Cantt</strong> 
+                with <strong>90.6%</strong> in Higher Secondary (12th) and <strong>87.6%</strong> in Secondary (10th), I treated mathematics 
+                and computational logic as the bedrock of engineering.
+              </p>
+              <p class="chapter-text">
+                I delved into C, C++, and Python from the hardware up—pointers, memory alignment, algorithmic complexity, recursion, and object-oriented abstractions. 
+                Solving <strong>200+ competitive programming challenges</strong> across LeetCode, HackerRank, and university neoPat platforms, I earned 
+                <strong>Gold in Python</strong>, <strong>Silver in C &amp; SQL</strong> on HackerRank, and the <strong>50 Days Streak Badge on LeetCode</strong>.
+              </p>
+              <div class="chapter-tags">
+                <span class="tag">C++ STL</span>
+                <span class="tag">Python Core</span>
+                <span class="tag">C Memory Models</span>
+                <span class="tag">200+ Solved Challenges</span>
+                <span class="tag">HackerRank Gold</span>
+                <span class="tag">LeetCode 50-Days</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PHASE 02: ENGINEERING -->
+          <div class="timeline-chapter-card tilt-card" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="chapter-badge badge-engineering">
+              <span class="chapter-num">PHASE 02</span>
+              <span class="chapter-title">ENGINEERING</span>
+              <span class="chapter-date">2024 – 2025</span>
+            </div>
+            <div class="chapter-body">
+              <h3 class="chapter-heading">The Shift To Systems: Concurrency, Caching &amp; Failure Modes</h3>
+              <p class="chapter-text">
+                Solving algorithmic puzzles taught me how functions execute, but engineering software requires understanding 
+                <strong>how distributed components communicate</strong>. Entering Lovely Professional University (maintaining a 
+                <strong>9.89 / 10 CGPA</strong>), I shifted focus from writing isolated algorithms to architecting systems responsible 
+                for uptime, data persistence, and latency.
+              </p>
+              <p class="chapter-text">
+                I studied the behavior of asynchronous event loops, non-blocking I/O, database connection pooling in PostgreSQL, 
+                and the dangers of uncontrolled external API consumption. I learned that an engineer's primary duty is designing for 
+                graceful failure: implementing token-bucket rate limiters, caching layers, and decoupled modular boundaries.
+              </p>
+              <div class="chapter-tags">
+                <span class="tag tag-cyan">Async/Await Event Loops</span>
+                <span class="tag tag-cyan">PostgreSQL Pooling</span>
+                <span class="tag tag-cyan">Caching Strategies</span>
+                <span class="tag tag-cyan">Token Bucket Rate Limiting</span>
+                <span class="tag tag-cyan">ACID Guarantees</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PHASE 03: BUILDING -->
+          <div class="timeline-chapter-card tilt-card" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="chapter-badge badge-building">
+              <span class="chapter-num">PHASE 03</span>
+              <span class="chapter-title">BUILDING</span>
+              <span class="chapter-date">2024 – 2025</span>
+            </div>
+            <div class="chapter-body">
+              <h3 class="chapter-heading">Turning Architecture Into Concrete User Products</h3>
+              <p class="chapter-text">
+                Architecture without execution is merely theory. I built three distinct production systems to master different engineering domains:
+              </p>
+              <div class="building-projects-mini">
+                <div class="mini-proj-item">
+                  <strong>Courses Glance:</strong> Engineered an academic learning platform with custom PDF.js canvas rendering, persistent normalized coordinate-based text highlights, and real-time Firestore synchronization.
+                </div>
+                <div class="mini-proj-item">
+                  <strong>Portfolio 2.0 (UbuntuOS):</strong> Built an in-browser operating desktop with an extensible window manager supporting dragging, minimizing, maximizing, focus management, and dynamic z-index stacking.
+                </div>
+                <div class="mini-proj-item">
+                  <strong>Weather Now:</strong> Engineered a live environmental dashboard retrieving 5-day / 3-hour forecasts with a dual-axis Chart.js visualization engine and rule-based weather recommendation heuristics.
+                </div>
+              </div>
+              <div class="chapter-tags">
+                <span class="tag">PDF.js Coordinate Vectors</span>
+                <span class="tag">Window Management Engine</span>
+                <span class="tag">Chart.js Dual-Axis</span>
+                <span class="tag">Firebase Auth &amp; Firestore</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PHASE 04: RISHOURCE -->
+          <div class="timeline-chapter-card highlight-flagship tilt-card" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="chapter-badge badge-flagship">
+              <span class="chapter-num">PHASE 04</span>
+              <span class="chapter-title">RISHOURCE</span>
+              <span class="chapter-date">2025 – 2026 // FLAGSHIP</span>
+            </div>
+            <div class="chapter-body">
+              <h3 class="chapter-heading">The Flagship Systems Climax: AutoShardedBot &amp; Next.js Control Plane</h3>
+              <p class="chapter-text">
+                Rishource represents the convergence of everything I have learned, engineered, and built. It is a comprehensive 
+                Discord automation platform and Next.js management dashboard built to manage guilds, moderate communities, stream AI completions, 
+                and synchronize state across multiple server shards.
+              </p>
+              <p class="chapter-text">
+                When Discord API rate limits threatened to stall dashboard operations during burst periods, I engineered a 
+                <strong>15-minute Node-Cache TTL</strong> with seamless fallbacks to stale data on HTTP 429 errors. I decoupled features into 
+                independent <strong>Cogs</strong>, orchestrated dynamic extension discovery, pooled PostgreSQL connections via Prisma, 
+                and implemented a 5-level structured logging system with automatic log rotation.
+              </p>
+              <div class="chapter-tags">
+                <span class="tag tag-cyan">discord.py AutoShardedBot</span>
+                <span class="tag tag-cyan">Next.js &amp; TypeScript</span>
+                <span class="tag tag-cyan">Prisma &amp; Async PostgreSQL</span>
+                <span class="tag tag-cyan">15-min Node-Cache TTL</span>
+                <span class="tag tag-cyan">Discord OAuth 2.0</span>
+                <span class="tag tag-cyan">OpenAI API</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PHASE 05: WHAT COMES NEXT -->
+          <div class="timeline-chapter-card tilt-card" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="chapter-badge badge-next">
+              <span class="chapter-num">PHASE 05</span>
+              <span class="chapter-title">WHAT COMES NEXT</span>
+              <span class="chapter-date">Present &amp; The Frontier</span>
+            </div>
+            <div class="chapter-body">
+              <h3 class="chapter-heading">Distributed Systems, Scalable Cloud Architectures &amp; AI</h3>
+              <p class="chapter-text">
+                The story doesn’t end with what I’ve built—it begins with what I engineer next. My focus is advancing into 
+                distributed microservices, event-driven architectures (Kafka / RabbitMQ), high-throughput caching (Redis), 
+                and low-latency AI-augmented cloud systems.
+              </p>
+              <p class="chapter-text">
+                I am actively seeking software engineering internships and developer roles where I can contribute my relentless 
+                drive for architectural resilience, clean code, and foundational computer science discipline to high-impact teams.
+              </p>
+              <div class="chapter-tags">
+                <span class="tag tag-purple">High-Throughput Backends</span>
+                <span class="tag tag-purple">Distributed Consensus</span>
+                <span class="tag tag-purple">Cloud Infrastructure</span>
+                <span class="tag tag-purple">SDE / Full-Stack Roles</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Graphic Novel Odyssey Banner -->
+        <div class="story-comic-teaser">
+          <div class="comic-teaser-info">
+            <h4 class="comic-teaser-title">The Illustrated Graphic Novel Odyssey</h4>
+            <p class="comic-teaser-sub">Experience the visual narrative documenting the journey from Chapter 1's blank screen to building resilient production systems.</p>
+          </div>
+          <button class="btn btn-primary" id="openComicModalBtn2" data-cursor="button">
+            <span>Open 6-Chapter Story Reader</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FLAGSHIP ARCHITECTURE SPOTLIGHT: RISHOURCE -->
+    <section id="rishource" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">03 // FLAGSHIP ARCHITECTURE</span>
+          <h2 class="section-title">RISHOURCE<br><span class="gradient-text-cyan">Modular Discord Bot &amp; Next.js Management Platform</span></h2>
+          <p class="section-desc">
+            A production-ready distributed automation platform engineered with AutoShardedBot, async connection pooling, and multi-tier caching.
+          </p>
+        </div>
+
+        <div class="flagship-project-container">
+          <div class="flagship-badge">
+            <span class="pulse-ring"></span>
+            <span>SYSTEM SPOTLIGHT // RISHOURCE</span>
+          </div>
+
+          <div class="flagship-grid">
+            <!-- Left Details -->
+            <div class="flagship-details">
+              <div class="project-header-meta">
+                <span class="project-category">DISTRIBUTED BOT &amp; CONTROL PLANE</span>
+                <div class="project-links">
+                  <a href="https://github.com/rishabhkumaar" target="_blank" rel="noopener noreferrer" class="link-icon-btn" title="View Source on GitHub" data-cursor="link">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                    </svg>
+                    <span>GitHub</span>
+                  </a>
+                </div>
+              </div>
+
+              <h3 class="flagship-title">RISHOURCE</h3>
+              <p class="flagship-subtitle">Engineered for Concurrency, Reliability &amp; Seamless Administration</p>
+
+              <div class="tech-stack-row">
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">discord.py</span>
+                <span class="tech-badge">Next.js</span>
+                <span class="tech-badge">TypeScript</span>
+                <span class="tech-badge">PostgreSQL</span>
+                <span class="tech-badge">Prisma</span>
+                <span class="tech-badge">OpenAI API</span>
+                <span class="tech-badge">Node-Cache</span>
+              </div>
+
+              <div class="flagship-bullets">
+                <div class="bullet-item">
+                  <span class="bullet-icon">⚡</span>
+                  <div>
+                    <strong>Modular Multi-Domain Cogs:</strong> Architected independent, hot-reloadable Cog modules spanning Moderation, OpenAI conversational processing, Weather telemetry, Air Quality, Mini-Games, Utilities, Ticketing, Leveling, and Audit Logging.
+                  </div>
+                </div>
+                <div class="bullet-item">
+                  <span class="bullet-icon">🔄</span>
+                  <div>
+                    <strong>AutoShardedBot Concurrency:</strong> Re-engineered the bot engine around discord.py <code>AutoShardedBot</code>, dynamic extension discovery, centralized configuration, and asynchronous PostgreSQL connection pooling via Prisma.
+                  </div>
+                </div>
+                <div class="bullet-item">
+                  <span class="bullet-icon">🛡️</span>
+                  <div>
+                    <strong>Discord OAuth 2.0 &amp; Guild Permissions:</strong> Implemented permission-aware guild discovery in Next.js, allowing only authenticated administrators with verified Discord server privileges to adjust bot parameters.
+                  </div>
+                </div>
+                <div class="bullet-item">
+                  <span class="bullet-icon">⏱️</span>
+                  <div>
+                    <strong>15-Minute Node-Cache TTL &amp; Fallback:</strong> Mitigated external Discord API rate-limiting spikes (HTTP 429) using a 15-minute in-memory Node-Cache TTL. Enforced rate-limited refreshes with transparent stale-while-revalidate fallbacks.
+                  </div>
+                </div>
+                <div class="bullet-item">
+                  <span class="bullet-icon">📊</span>
+                  <div>
+                    <strong>5-Level Structured Logging:</strong> Established structured logging across 5 levels with caller metadata, exception tracebacks, automated file rotation, and backup persistence.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Interactive Sharding Cluster Telemetry Simulator -->
+              <div class="sharding-telemetry-widget">
+                <div class="widget-header">
+                  <span class="widget-title">CLUSTER SHARD STATUS (12 SHARDS ACTIVE)</span>
+                  <span class="widget-status text-green">● ALL CLUSTERS HEALTHY</span>
+                </div>
+                <div class="shards-grid" id="shardsGrid">
+                  <!-- Shard blocks populated dynamically or with 12 clean blocks -->
+                  <div class="shard-box active" title="Shard 0: 18ms"><span class="s-id">#00</span><span class="s-ms">18ms</span></div>
+                  <div class="shard-box active" title="Shard 1: 22ms"><span class="s-id">#01</span><span class="s-ms">22ms</span></div>
+                  <div class="shard-box active" title="Shard 2: 19ms"><span class="s-id">#02</span><span class="s-ms">19ms</span></div>
+                  <div class="shard-box active" title="Shard 3: 25ms"><span class="s-id">#03</span><span class="s-ms">25ms</span></div>
+                  <div class="shard-box active" title="Shard 4: 21ms"><span class="s-id">#04</span><span class="s-ms">21ms</span></div>
+                  <div class="shard-box active" title="Shard 5: 17ms"><span class="s-id">#05</span><span class="s-ms">17ms</span></div>
+                  <div class="shard-box active" title="Shard 6: 24ms"><span class="s-id">#06</span><span class="s-ms">24ms</span></div>
+                  <div class="shard-box active" title="Shard 7: 20ms"><span class="s-id">#07</span><span class="s-ms">20ms</span></div>
+                  <div class="shard-box active" title="Shard 8: 19ms"><span class="s-id">#08</span><span class="s-ms">19ms</span></div>
+                  <div class="shard-box active" title="Shard 9: 23ms"><span class="s-id">#09</span><span class="s-ms">23ms</span></div>
+                  <div class="shard-box active" title="Shard 10: 18ms"><span class="s-id">#10</span><span class="s-ms">18ms</span></div>
+                  <div class="shard-box active" title="Shard 11: 21ms"><span class="s-id">#11</span><span class="s-ms">21ms</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Interactive Architecture Visualizer -->
+            <div class="flagship-interactive">
+              <div class="architecture-explorer-box">
+                <div class="arch-tabs">
+                  <button class="arch-tab-btn active" data-tab="arch-overview" data-cursor="button">Data Pipeline</button>
+                  <button class="arch-tab-btn" data-tab="arch-cache" data-cursor="button">Cache &amp; Rate Limits</button>
+                  <button class="arch-tab-btn" data-tab="arch-cogs" data-cursor="button">Modular Cogs</button>
+                  <button class="arch-tab-btn" data-tab="arch-sim" data-cursor="button">Live Bot Simulator</button>
+                </div>
+
+                <!-- Tab 1: System Pipeline -->
+                <div class="arch-tab-panel active" id="arch-overview">
+                  <div class="system-diagram">
+                    <div class="diagram-node node-client">
+                      <span class="node-type">CLIENT LAYER</span>
+                      <span class="node-name">Discord Guilds &amp; Next.js Admin Dashboard</span>
+                    </div>
+                    <div class="diagram-arrow">➔</div>
+                    <div class="diagram-node node-gateway">
+                      <span class="node-type">INGRESS &amp; AUTH</span>
+                      <span class="node-name">Discord Gateway (WSS) + OAuth 2.0 Tokens</span>
+                    </div>
+                    <div class="diagram-arrow">➔</div>
+                    <div class="diagram-node node-sharded">
+                      <span class="node-type">CORE RUNTIME</span>
+                      <span class="node-name">discord.py AutoShardedBot Engine</span>
+                    </div>
+                    <div class="diagram-split">
+                      <div class="diagram-branch">
+                        <span class="branch-arrow">↓</span>
+                        <div class="diagram-node node-cogs">
+                          <span class="node-type">DYNAMIC COGS</span>
+                          <span class="node-name">AI • Mod • Tickets • Level</span>
+                        </div>
+                      </div>
+                      <div class="diagram-branch">
+                        <span class="branch-arrow">↓</span>
+                        <div class="diagram-node node-db">
+                          <span class="node-type">PERSISTENCE POOL</span>
+                          <span class="node-name">Prisma ORM + PostgreSQL</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="arch-caption">
+                    <span>Architectural Highlight:</span> Dynamic extension discovery enables hot-reloading individual Cogs without terminating the central AutoShardedBot gateway connection.
+                  </div>
+                </div>
+
+                <!-- Tab 2: Cache & Rate Limits -->
+                <div class="arch-tab-panel" id="arch-cache">
+                  <div class="code-telemetry-window">
+                    <div class="code-header">
+                      <span class="file-name">cacheManager.ts // 15-Minute Node-Cache Strategy</span>
+                      <span class="status-pill status-healthy">TTL: 900s (15 min)</span>
+                    </div>
+                    <pre class="code-body"><code><span class="c-kw">import</span> NodeCache <span class="c-kw">from</span> <span class="c-str">'node-cache'</span>;
+<span class="c-kw">const</span> guildCache = <span class="c-kw">new</span> <span class="c-fn">NodeCache</span>({ stdTTL: <span class="c-num">900</span>, checkperiod: <span class="c-num">120</span> });
+
+<span class="c-kw">export async function</span> <span class="c-fn">fetchUserGuilds</span>(userId: <span class="c-type">string</span>, token: <span class="c-type">string</span>) {
+  <span class="c-kw">const</span> cached = guildCache.<span class="c-fn">get</span>(userId);
+  <span class="c-kw">if</span> (cached) <span class="c-kw">return</span> { data: cached, source: <span class="c-str">'cache_hit'</span> };
+
+  <span class="c-kw">try</span> {
+    <span class="c-kw">const</span> guilds = <span class="c-kw">await</span> discordApi.<span class="c-fn">getGuilds</span>(token);
+    guildCache.<span class="c-fn">set</span>(userId, guilds);
+    <span class="c-kw">return</span> { data: guilds, source: <span class="c-str">'discord_api'</span> };
+  } <span class="c-kw">catch</span> (err: <span class="c-type">any</span>) {
+    <span class="c-kw">if</span> (err.status === <span class="c-num">429</span> && cached) {
+      logger.<span class="c-fn">warn</span>(<span class="c-str">`[429 RateLimit] Fallback to cached guilds for ${userId}`</span>);
+      <span class="c-kw">return</span> { data: cached, source: <span class="c-str">'graceful_fallback'</span> };
+    }
+    <span class="c-kw">throw</span> err;
+  }
+}</code></pre>
+                  </div>
+                  <div class="arch-caption">
+                    <span>Fault Tolerance:</span> Guarantees continuous dashboard responsiveness even when Discord API enforces 429 throttling on high-volume user refreshes.
+                  </div>
+                </div>
+
+                <!-- Tab 3: Modular Cogs Matrix -->
+                <div class="arch-tab-panel" id="arch-cogs">
+                  <div class="cogs-matrix">
+                    <div class="cog-card tilt-card" data-tilt>
+                      <div class="cog-header">
+                        <span class="cog-icon">🛡️</span>
+                        <span class="cog-title">Moderation Cog</span>
+                      </div>
+                      <p class="cog-desc">Automated audit logging, sanction queues, role verification, and anti-spam filters.</p>
+                    </div>
+                    <div class="cog-card tilt-card" data-tilt>
+                      <div class="cog-header">
+                        <span class="cog-icon">🧠</span>
+                        <span class="cog-title">OpenAI Assistant</span>
+                      </div>
+                      <p class="cog-desc">Context-aware conversational intelligence, token rate limiting, and prompt sanitization.</p>
+                    </div>
+                    <div class="cog-card tilt-card" data-tilt>
+                      <div class="cog-header">
+                        <span class="cog-icon">🎫</span>
+                        <span class="cog-title">Ticketing Cog</span>
+                      </div>
+                      <p class="cog-desc">Dynamic channel isolation, interactive button embeds, modal forms, and transcript archival.</p>
+                    </div>
+                    <div class="cog-card tilt-card" data-tilt>
+                      <div class="cog-header">
+                        <span class="cog-icon">📈</span>
+                        <span class="cog-title">Leveling &amp; XP</span>
+                      </div>
+                      <p class="cog-desc">Atomic database increments, cooldown tracking, leaderboard ranking, and role rewards.</p>
+                    </div>
+                  </div>
+                  <div class="arch-caption">
+                    <span>Decoupled Design:</span> Every feature operates as a standalone Cog class inheriting from <code>commands.Cog</code>, isolating faults from affecting the core process.
+                  </div>
+                </div>
+
+                <!-- Tab 4: Simulated Interactive Bot -->
+                <div class="arch-tab-panel" id="arch-sim">
+                  <div class="bot-simulator-box">
+                    <div class="sim-screen" id="simOutput">
+                      <div class="sim-line system-line">[SYSTEM] AutoShardedBot v2.4 initialized. Ready across 12 shards.</div>
+                      <div class="sim-line bot-line"><span class="bot-tag">BOT</span> Rishource online. Type <code>/help</code> or click the quick commands below.</div>
+                    </div>
+                    <div class="sim-input-row">
+                      <span class="sim-prompt">/</span>
+                      <input type="text" id="simInput" placeholder="Try /status, /shard, /cache, /stats, /clear..." autocomplete="off">
+                      <button id="simSendBtn" class="btn-xs" data-cursor="button">Execute</button>
+                    </div>
+                  </div>
+                  <div class="sim-quick-chips">
+                    <button class="chip-cmd" data-cmd="status" data-cursor="button">/status</button>
+                    <button class="chip-cmd" data-cmd="shard" data-cursor="button">/shard</button>
+                    <button class="chip-cmd" data-cmd="cache" data-cursor="button">/cache</button>
+                    <button class="chip-cmd" data-cmd="stats" data-cursor="button">/stats</button>
+                    <button class="chip-cmd" data-cmd="help" data-cursor="button">/help</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- THREE CORE PRODUCTION SYSTEMS WITH LIVE INTERACTIVE SIMULATORS -->
+    <section id="projects" class="section-block bg-subtle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">04 // PRODUCTION SYSTEMS &amp; INTERACTIVE SIMULATORS</span>
+          <h2 class="section-title">Engineered Products<br><span class="gradient-text-cyan">Built For Specific Problems</span></h2>
+          <p class="section-desc">
+            Explore live interactive simulators of the exact engines powering Courses Glance, Portfolio 2.0 (UbuntuOS), and Weather Now.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          
+          <!-- PROJECT 02: COURSES GLANCE -->
+          <div class="project-card tilt-card" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="project-card-header">
+              <div class="card-num">02 // ACADEMIC PLATFORM</div>
+              <a href="https://github.com/rishabhkumaar" target="_blank" rel="noopener noreferrer" class="link-icon-subtle" title="View Source on GitHub" data-cursor="link">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+              </a>
+            </div>
+
+            <h3 class="project-title">Courses Glance</h3>
+            <p class="project-role-tag">Course &amp; PDF Platform with Coordinate Text Highlights</p>
+
+            <div class="project-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">PDF.js</span>
+              <span class="tag">Firebase Auth</span>
+              <span class="tag">Firestore Sync</span>
+            </div>
+
+            <p class="project-description">
+              Architected an authenticated academic resource platform centralizing 9 university courses. Integrated PDF.js 
+              with page navigation, lazy rendering, and resolution-independent coordinate annotations.
+            </p>
+
+            <!-- Live Simulator: PDF Coordinate Highlight Engine -->
+            <div class="project-mini-simulator">
+              <div class="sim-widget-title">LIVE DEMO: COORDINATE VECTOR CALCULATOR</div>
+              <div class="pdf-sim-viewport" id="pdfSimViewport">
+                <p class="pdf-sim-text" id="pdfSelectableText">
+                  "Operating Systems manage memory allocation, thread synchronization, and CPU scheduling."
+                </p>
+                <div class="pdf-highlight-box" id="pdfHighlightBox"></div>
+              </div>
+              <div class="pdf-sim-readout">
+                <span>Vector Output:</span>
+                <code id="pdfCoordOutput">{"page": 1, "x": 0.12, "y": 0.44, "w": 0.76}</code>
+              </div>
+            </div>
+
+            <ul class="project-feature-list">
+              <li>
+                <strong>Normalized Page Coordinates:</strong> Translates DOM selections into resolution-independent normalized PDF coordinate vectors reconstructed across zoom levels.
+              </li>
+              <li>
+                <strong>Cloud State Sync:</strong> Synchronized bookmarks, reading progress, and annotations with Firebase Firestore under user-scoped security rules.
+              </li>
+            </ul>
+
+            <div class="project-footer">
+              <span class="badge-status">9 Academic Courses</span>
+              <span class="badge-tech">Coordinate Engine</span>
+            </div>
+          </div>
+
+          <!-- PROJECT 03: PORTFOLIO 2.0 (UBUNTU OS WEB DESKTOP) -->
+          <div class="project-card tilt-card" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="project-card-header">
+              <div class="card-num">03 // OPERATING ENVIRONMENT</div>
+              <a href="https://github.com/rishabhkumaar" target="_blank" rel="noopener noreferrer" class="link-icon-subtle" title="View Source on GitHub" data-cursor="link">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+              </a>
+            </div>
+
+            <h3 class="project-title">Portfolio 2.0</h3>
+            <p class="project-role-tag">Ubuntu 20.04 Browser Operating Environment</p>
+
+            <div class="project-tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">React</span>
+              <span class="tag">Tailwind CSS</span>
+              <span class="tag">react-draggable</span>
+            </div>
+
+            <p class="project-description">
+              Engineered an Ubuntu 20.04-inspired desktop inside the browser transforming a static website into a multi-tasking 
+              operating environment with dragging, minimizing, and z-index focus.
+            </p>
+
+            <!-- Live Simulator: Mini Draggable Window -->
+            <div class="project-mini-simulator">
+              <div class="sim-widget-title">LIVE DEMO: DRAGGABLE WINDOW MANAGER</div>
+              <div class="ubuntu-sim-container" id="ubuntuSimArea">
+                <div class="mini-window" id="miniUbuntuWindow">
+                  <div class="mini-titlebar" id="miniTitleBar">
+                    <div class="mini-dots">
+                      <span class="m-dot m-close"></span>
+                      <span class="m-dot m-min"></span>
+                      <span class="m-dot m-max"></span>
+                    </div>
+                    <span class="m-title">terminal@ubuntu:~</span>
+                  </div>
+                  <div class="mini-content">
+                    <p class="m-code text-cyan">$ cat sys_info.txt</p>
+                    <p class="m-text">Status: 8 apps active (Terminal, Calc, VSCode, Spotify, Chrome)</p>
+                    <span class="m-tip">[Drag by titlebar]</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <ul class="project-feature-list">
+              <li>
+                <strong>Custom Window Manager:</strong> Supports dragging, minimizing, maximizing, restoring, closing, focus management, and dynamic z-index stacking.
+              </li>
+              <li>
+                <strong>Extensible App Registry:</strong> Connected desktop shortcuts, sidebar dock, metadata, and dynamic React components into a single architecture.
+              </li>
+            </ul>
+
+            <div class="project-footer">
+              <span class="badge-status">Multi-App Desktop</span>
+              <span class="badge-tech">OS Emulation</span>
+            </div>
+          </div>
+
+          <!-- PROJECT 04: WEATHER NOW -->
+          <div class="project-card tilt-card" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="project-card-header">
+              <div class="card-num">04 // TELEMETRY &amp; VISUALIZATION</div>
+              <a href="https://github.com/rishabhkumaar" target="_blank" rel="noopener noreferrer" class="link-icon-subtle" title="View Source on GitHub" data-cursor="link">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+              </a>
+            </div>
+
+            <h3 class="project-title">Weather Now</h3>
+            <p class="project-role-tag">Dual-Axis Meteorological Telemetry Dashboard</p>
+
+            <div class="project-tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">OpenWeatherMap</span>
+              <span class="tag">Chart.js</span>
+            </div>
+
+            <p class="project-description">
+              Responsive meteorological dashboard retrieving 5-day / 3-hour forecasts for searched global cities and custom coordinates, 
+              rendering 10+ environmental metrics with dual-axis trajectories.
+            </p>
+
+            <!-- Live Simulator: Dual-Axis Chart Canvas -->
+            <div class="project-mini-simulator">
+              <div class="sim-widget-title">LIVE DEMO: DUAL-AXIS TELEMETRY ENGINE</div>
+              <canvas id="weatherSimChart" class="weather-chart-canvas" width="300" height="120"></canvas>
+              <div class="weather-sim-legend">
+                <span class="leg-temp">● Temperature (°C)</span>
+                <span class="leg-hum">● Humidity (%)</span>
+              </div>
+            </div>
+
+            <ul class="project-feature-list">
+              <li>
+                <strong>Dual-Axis Telemetry Graphs:</strong> Visualized synchronized temperature and humidity trajectories using Chart.js configurations.
+              </li>
+              <li>
+                <strong>Rule-Based Recommendations:</strong> Algorithmic advisories based on atmospheric shifts; deployed via Netlify CDN.
+              </li>
+            </ul>
+
+            <div class="project-footer">
+              <span class="badge-status">Live Telemetry</span>
+              <span class="badge-tech">Netlify Deployed</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS MATRIX -->
+    <section id="skills" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">05 // TECHNICAL CAPABILITIES</span>
+          <h2 class="section-title">Engineered Stack &amp;<br><span class="gradient-text-cyan">Architectural Competence</span></h2>
+          <p class="section-desc">
+            Direct practical experience across languages, frameworks, storage systems, and systems design principles.
+          </p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="skills-filter-bar">
+          <button class="filter-btn active" data-filter="all" data-cursor="button">All Disciplines</button>
+          <button class="filter-btn" data-filter="languages" data-cursor="button">Languages</button>
+          <button class="filter-btn" data-filter="frameworks" data-cursor="button">Frameworks &amp; Libs</button>
+          <button class="filter-btn" data-filter="databases" data-cursor="button">Databases</button>
+          <button class="filter-btn" data-filter="systems" data-cursor="button">Engineering &amp; Architecture</button>
+          <button class="filter-btn" data-filter="tools" data-cursor="button">APIs &amp; Tools</button>
+        </div>
+
+        <!-- Grid of Skill Cards -->
+        <div class="skills-matrix-grid" id="skillsContainer">
+          
+          <!-- Category: Languages -->
+          <div class="skill-pill-card tilt-card" data-category="languages" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">Python</span>
+              <span class="skill-level-badge">HackerRank Gold</span>
+            </div>
+            <p class="skill-detail">discord.py, AsyncIO, backend scripting, OpenAI integrations, automation.</p>
+            <span class="skill-origin">Used in: Rishource, LeetCode, Scripting</span>
+          </div>
+
+          <div class="skill-pill-card tilt-card" data-category="languages" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">C++</span>
+              <span class="skill-level-badge">Core Foundations</span>
+            </div>
+            <p class="skill-detail">Object-oriented programming, STL, memory concepts, competitive programming.</p>
+            <span class="skill-origin">Used in: 200+ Solved Challenges, NeoPat</span>
+          </div>
+
+          <div class="skill-pill-card tilt-card" data-category="languages" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">C</span>
+              <span class="skill-level-badge">HackerRank Silver</span>
+            </div>
+            <p class="skill-detail">Pointers, memory allocation, data structures, low-level execution models.</p>
+            <span class="skill-origin">Used in: System Fundamentals, LPU NeoPat</span>
+          </div>
+
+          <div class="skill-pill-card tilt-card" data-category="languages" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">JavaScript &amp; TypeScript</span>
+              <span class="skill-level-badge">Advanced</span>
+            </div>
+            <p class="skill-detail">Strict typing, ESNext, async patterns, DOM manipulation, Next.js dashboard.</p>
+            <span class="skill-origin">Used in: Rishource, Courses Glance, Weather Now</span>
+          </div>
+
+          <div class="skill-pill-card tilt-card" data-category="languages" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">HTML5 &amp; CSS3</span>
+              <span class="skill-level-badge">Responsive</span>
+            </div>
+            <p class="skill-detail">Semantic structure, CSS custom variables, glassmorphism, responsive grid/flex.</p>
+            <span class="skill-origin">Used in: Weather Now, Portfolio 2.0, Web Systems</span>
+          </div>
+
+          <!-- Category: Frameworks & Libraries -->
+          <div class="skill-pill-card tilt-card" data-category="frameworks" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">React &amp; Next.js</span>
+              <span class="skill-level-badge">SSR / App Router</span>
+            </div>
+            <p class="skill-detail">Server Components, API routes, custom hooks, state management, OAuth flows.</p>
+            <span class="skill-origin">Used in: Rishource Dashboard, Portfolio 2.0</span>
+          </div>
+
+          <div class="skill-pill-card tilt-card" data-category="frameworks" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">discord.py &amp; discord.js</span>
+              <span class="skill-level-badge">Sharded Bots</span>
+            </div>
+            <p class="skill-detail">AutoShardedBot, Cogs, command handlers, gateway intents, interaction components.</p>
+            <span class="skill-origin">Used in: Rishource Modular Platform</span>
+          </div>
+
+          <div class="skill-pill-card tilt-card" data-category="frameworks" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">Prisma ORM</span>
+              <span class="skill-level-badge">Type-Safe</span>
+            </div>
+            <p class="skill-detail">Data modeling, migrations, relation mapping, pooled database client execution.</p>
+            <span class="skill-origin">Used in: Rishource Next.js Backend</span>
+          </div>
+
+          <div class="skill-pill-card tilt-card" data-category="frameworks" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">PDF.js</span>
+              <span class="skill-level-badge">Custom Rendering</span>
+            </div>
+            <p class="skill-detail">Document viewport rendering, page navigation, text search, coordinate capture.</p>
+            <span class="skill-origin">Used in: Courses Glance Academic Hub</span>
+          </div>
+
+          <div class="skill-pill-card tilt-card" data-category="frameworks" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">Chart.js</span>
+              <span class="skill-level-badge">Data Visuals</span>
+            </div>
+            <p class="skill-detail">Dual-axis charts, dynamic dataset mutations, responsive canvas resizing.</p>
+            <span class="skill-origin">Used in: Weather Now Telemetry Graph</span>
+          </div>
+
+          <div class="skill-pill-card tilt-card" data-category="frameworks" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">Tailwind CSS &amp; Redux</span>
+              <span class="skill-level-badge">UI Architecture</span>
+            </div>
+            <p class="skill-detail">State slices, UI styling systems, dispatch actions, theme persistence.</p>
+            <span class="skill-origin">Used in: Portfolio 2.0, Full-Stack Apps</span>
+          </div>
+
+          <!-- Category: Databases -->
+          <div class="skill-pill-card tilt-card" data-category="databases" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">PostgreSQL</span>
+              <span class="skill-level-badge">Relational Core</span>
+            </div>
+            <p class="skill-detail">Relational schemas, async connection pooling, indexing, foreign keys, Prisma.</p>
+            <span class="skill-origin">Used in: Rishource Guild Storage</span>
+          </div>
+
+          <div class="skill-pill-card tilt-card" data-category="databases" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">MySQL</span>
+              <span class="skill-level-badge">HackerRank Silver</span>
+            </div>
+            <p class="skill-detail">Structured queries, joins, aggregations, database normalization.</p>
+            <span class="skill-origin">Used in: Saylor Database Systems (86%)</span>
+          </div>
+
+          <div class="skill-pill-card tilt-card" data-category="databases" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">MongoDB &amp; Firestore</span>
+              <span class="skill-level-badge">Document &amp; Realtime</span>
+            </div>
+            <p class="skill-detail">Document collections, real-time listener subscriptions, security rules.</p>
+            <span class="skill-origin">Used in: Courses Glance Realtime Sync</span>
+          </div>
+
+          <!-- Category: Systems & Engineering Concepts -->
+          <div class="skill-pill-card tilt-card" data-category="systems" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">Caching &amp; Rate Limiting</span>
+              <span class="skill-level-badge">Systems Design</span>
+            </div>
+            <p class="skill-detail">15-minute Node-Cache TTL, token bucket throttling, fallback on 429 errors.</p>
+            <span class="skill-origin">Used in: Rishource Discord API Gateway</span>
+          </div>
+
+          <div class="skill-pill-card tilt-card" data-category="systems" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">OAuth 2.0 &amp; Auth Flows</span>
+              <span class="skill-level-badge">Security</span>
+            </div>
+            <p class="skill-detail">Discord OAuth, Firebase Authentication, JWT verification, role permissions.</p>
+            <span class="skill-origin">Used in: Rishource Dashboard, Courses Glance</span>
+          </div>
+
+          <div class="skill-pill-card tilt-card" data-category="systems" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">Async Programming</span>
+              <span class="skill-level-badge">Concurrency</span>
+            </div>
+            <p class="skill-detail">Async/Await event loops, non-blocking I/O, promise concurrency, tasks.</p>
+            <span class="skill-origin">Used in: discord.py AutoSharding, REST clients</span>
+          </div>
+
+          <div class="skill-pill-card tilt-card" data-category="systems" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">Structured Logging</span>
+              <span class="skill-level-badge">Observability</span>
+            </div>
+            <p class="skill-detail">5 log levels, caller metadata injection, file rotation, exception logging.</p>
+            <span class="skill-origin">Used in: Rishource Engine</span>
+          </div>
+
+          <!-- Category: APIs & Tools -->
+          <div class="skill-pill-card tilt-card" data-category="tools" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">REST APIs &amp; Integrations</span>
+              <span class="skill-level-badge">Integration</span>
+            </div>
+            <p class="skill-detail">Discord REST API, OpenAI API, OpenWeatherMap API, endpoint contracts.</p>
+            <span class="skill-origin">Used in: Rishource, Weather Now</span>
+          </div>
+
+          <div class="skill-pill-card tilt-card" data-category="tools" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">Git &amp; GitHub</span>
+              <span class="skill-level-badge">Version Control</span>
+            </div>
+            <p class="skill-detail">Branching strategies, commit hygiene, semantic releases, pull requests.</p>
+            <span class="skill-origin">Used in: All repositories</span>
+          </div>
+
+          <div class="skill-pill-card tilt-card" data-category="tools" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="skill-card-top">
+              <span class="skill-name">Cloud Deployment</span>
+              <span class="skill-level-badge">Hosting &amp; CI/CD</span>
+            </div>
+            <p class="skill-detail">Vercel, Netlify CDN, environment management, edge runtime.</p>
+            <span class="skill-origin">Used in: Weather Now, Portfolio deployments</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS & PROOF OF PROGRESS -->
+    <section id="achievements" class="section-block bg-subtle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">06 // PROOF OF PROGRESS</span>
+          <h2 class="section-title">Consistency Started<br><span class="gradient-text-cyan">Turning Into Verified Results</span></h2>
+          <p class="section-desc">
+            Verified milestones across competitive programming, problem solving, and academic rigor.
+          </p>
+        </div>
+
+        <div class="achievements-showcase-grid">
+          
+          <!-- Card 1: 200+ Problems Solved -->
+          <div class="achieve-card highlight-glow tilt-card" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="achieve-icon-wrap">
+              <span class="achieve-big-number">200+</span>
+            </div>
+            <h3 class="achieve-title">Programming Problems Solved</h3>
+            <p class="achieve-desc">
+              Solved across online coding platforms including LeetCode, HackerRank, and university neoPat testbeds. 
+              Focused on algorithmic efficiency, asymptotic analysis, and data structure selection.
+            </p>
+            <div class="achieve-meta-tag">Continuous Practice Discipline</div>
+          </div>
+
+          <!-- Card 2: HackerRank Badges -->
+          <div class="achieve-card tilt-card" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="badge-icon-row">
+              <div class="trophy-badge badge-gold">
+                <span class="trophy-symbol">🥇</span>
+                <span class="trophy-lang">Python</span>
+                <span class="trophy-rank">Gold Badge</span>
+              </div>
+              <div class="trophy-badge badge-silver">
+                <span class="trophy-symbol">🥈</span>
+                <span class="trophy-lang">C Lang</span>
+                <span class="trophy-rank">Silver Badge</span>
+              </div>
+              <div class="trophy-badge badge-silver">
+                <span class="trophy-symbol">🥈</span>
+                <span class="trophy-lang">SQL</span>
+                <span class="trophy-rank">Silver Badge</span>
+              </div>
+            </div>
+            <h3 class="achieve-title">HackerRank Skill Accreditations</h3>
+            <p class="achieve-desc">
+              Demonstrated verified proficiency in Python problem-solving, structured C programming, and relational SQL queries.
+            </p>
+            <div class="achieve-meta-tag">HackerRank Verified</div>
+          </div>
+
+          <!-- Card 3: LeetCode Badges -->
+          <div class="achieve-card tilt-card" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="leetcode-badges-list">
+              <div class="lc-badge-item">
+                <span class="lc-medal">🏅</span>
+                <div>
+                  <strong>50 Days Badge</strong>
+                  <span>Consecutive daily algorithmic problem-solving streak</span>
+                </div>
+              </div>
+              <div class="lc-badge-item">
+                <span class="lc-medal">🔷</span>
+                <div>
+                  <strong>Mathematical I</strong>
+                  <span>Number theory, combinatorics &amp; modular math</span>
+                </div>
+              </div>
+              <div class="lc-badge-item">
+                <span class="lc-medal">📊</span>
+                <div>
+                  <strong>Data Navigator</strong>
+                  <span>Data structures &amp; traversal mastery</span>
+                </div>
+              </div>
+              <div class="lc-badge-item">
+                <span class="lc-medal">🐼</span>
+                <div>
+                  <strong>Introduction to Pandas</strong>
+                  <span>Data processing &amp; frame manipulations</span>
+                </div>
+              </div>
+            </div>
+            <h3 class="achieve-title">LeetCode Verified Badges</h3>
+            <p class="achieve-desc">
+              Proof of sustained discipline, analytical stamina, and continuous problem-solving practice.
+            </p>
+            <div class="achieve-meta-tag">LeetCode Verified</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS SHOWCASE -->
+    <section id="certifications" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">07 // CREDENTIALS &amp; ASSESSMENTS</span>
+          <h2 class="section-title">Verified Certifications &amp;<br><span class="gradient-text-cyan">Technical Accreditations</span></h2>
+          <p class="section-desc">
+            Click any certificate card to inspect the verified document credential directly.
+          </p>
+        </div>
+
+        <div class="certifications-grid">
+          
+          <!-- Cert 1: Web Dev Udemy -->
+          <div class="cert-card tilt-card" data-cert-img="certificate/computer-programming.png" data-cert-title="Complete Web Development Course" data-tilt data-cursor="link">
+            <div class="hud-glare"></div>
+            <div class="cert-card-preview">
+              <img src="certificate/computer-programming.png" alt="Complete Web Development Course" class="cert-thumb" loading="lazy">
+              <div class="cert-zoom-overlay">
+                <span>Inspect Certificate</span>
+              </div>
+            </div>
+            <div class="cert-info">
+              <div class="cert-issuer">Udemy</div>
+              <h3 class="cert-name">Complete Web Development Course</h3>
+              <div class="cert-tags">
+                <span class="cert-tag">100 hrs</span>
+                <span class="cert-tag">2026</span>
+              </div>
+              <p class="cert-summary">Full-stack web architecture, frontend interactivity, server pipelines, and databases.</p>
+            </div>
+          </div>
+
+          <!-- Cert 2: Computer Programming LPU NeoPat -->
+          <div class="cert-card tilt-card" data-cert-img="certificate/computer-programming.png" data-cert-title="Computer Programming — LPU / iamneo" data-tilt data-cursor="link">
+            <div class="hud-glare"></div>
+            <div class="cert-card-preview">
+              <img src="certificate/computer-programming.png" alt="Computer Programming LPU iamneo" class="cert-thumb" loading="lazy">
+              <div class="cert-zoom-overlay">
+                <span>Inspect Certificate</span>
+              </div>
+            </div>
+            <div class="cert-info">
+              <div class="cert-issuer">LPU / iamneo</div>
+              <h3 class="cert-name">Computer Programming (iamneo)</h3>
+              <div class="cert-tags">
+                <span class="cert-tag">150 hrs</span>
+                <span class="cert-tag">2026</span>
+              </div>
+              <p class="cert-summary">Intensive algorithmic programming, data structure implementations, and competitive assessments.</p>
+            </div>
+          </div>
+
+          <!-- Cert 3: Infosys Springboard Python -->
+          <div class="cert-card tilt-card" data-cert-img="certificate/python-basic.png" data-cert-title="Programming Fundamentals using Python — Infosys Springboard" data-tilt data-cursor="link">
+            <div class="hud-glare"></div>
+            <div class="cert-card-preview">
+              <img src="certificate/python-basic.png" alt="Programming Fundamentals using Python Infosys" class="cert-thumb" loading="lazy">
+              <div class="cert-zoom-overlay">
+                <span>Inspect Certificate</span>
+              </div>
+            </div>
+            <div class="cert-info">
+              <div class="cert-issuer">Infosys Springboard</div>
+              <h3 class="cert-name">Programming Fundamentals using Python</h3>
+              <div class="cert-tags">
+                <span class="cert-tag">Enterprise Training</span>
+                <span class="cert-tag">2026</span>
+              </div>
+              <p class="cert-summary">Object-oriented Python design patterns, algorithmic logic, file I/O, and data processing.</p>
+            </div>
+          </div>
+
+          <!-- Cert 4: Saylor Modern Database Systems -->
+          <div class="cert-card tilt-card" data-cert-img="certificate/cs403-dbms.png" data-cert-title="Introduction to Modern Database Systems — Saylor Academy" data-tilt data-cursor="link">
+            <div class="hud-glare"></div>
+            <div class="cert-card-preview">
+              <img src="certificate/cs403-dbms.png" alt="Introduction to Modern Database Systems Saylor" class="cert-thumb" loading="lazy">
+              <div class="cert-zoom-overlay">
+                <span>Inspect Certificate</span>
+              </div>
+            </div>
+            <div class="cert-info">
+              <div class="cert-issuer">Saylor Academy</div>
+              <h3 class="cert-name">Modern Database Systems (CS403)</h3>
+              <div class="cert-tags">
+                <span class="cert-tag">Grade: 86%</span>
+                <span class="cert-tag">29 hrs | 2026</span>
+              </div>
+              <p class="cert-summary">Relational schema design, SQL query optimizations, ACID transaction guarantees, and indexing.</p>
+            </div>
+          </div>
+
+          <!-- Cert 5: Saylor Python CS105 -->
+          <div class="cert-card tilt-card" data-cert-img="certificate/cs105-python.png" data-cert-title="Introduction to Python — Saylor Academy" data-tilt data-cursor="link">
+            <div class="hud-glare"></div>
+            <div class="cert-card-preview">
+              <img src="certificate/cs105-python.png" alt="Introduction to Python Saylor Academy" class="cert-thumb" loading="lazy">
+              <div class="cert-zoom-overlay">
+                <span>Inspect Certificate</span>
+              </div>
+            </div>
+            <div class="cert-info">
+              <div class="cert-issuer">Saylor Academy</div>
+              <h3 class="cert-name">Introduction to Python (CS105)</h3>
+              <div class="cert-tags">
+                <span class="cert-tag">Grade: 100%</span>
+                <span class="cert-tag">Perfect Score</span>
+              </div>
+              <p class="cert-summary">Demonstrated complete 100% score mastery in core Python language constructs and computational execution.</p>
+            </div>
+          </div>
+
+          <!-- Cert 6: OpenAI Hackathon -->
+          <div class="cert-card tilt-card" data-cert-img="certificate/openai-hack-node.png" data-cert-title="OpenAI Hackathon Certification" data-tilt data-cursor="link">
+            <div class="hud-glare"></div>
+            <div class="cert-card-preview">
+              <img src="certificate/openai-hack-node.png" alt="OpenAI Hackathon" class="cert-thumb" loading="lazy">
+              <div class="cert-zoom-overlay">
+                <span>Inspect Certificate</span>
+              </div>
+            </div>
+            <div class="cert-info">
+              <div class="cert-issuer">OpenAI / Node</div>
+              <h3 class="cert-name">OpenAI Hackathon Engineering</h3>
+              <div class="cert-tags">
+                <span class="cert-tag">Hackathon</span>
+                <span class="cert-tag">AI Integration</span>
+              </div>
+              <p class="cert-summary">Hands-on application development leveraging OpenAI APIs, prompt orchestration, and intelligent workflows.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="section-block bg-subtle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">08 // ACADEMIC RIGOR</span>
+          <h2 class="section-title">Formal Education &amp;<br><span class="gradient-text-cyan">Academic Excellence</span></h2>
+          <p class="section-desc">
+            Pairing high academic distinction with aggressive hands-on software development.
+          </p>
+        </div>
+
+        <div class="education-grid">
+          
+          <!-- Education 1: Lovely Professional University -->
+          <div class="education-card highlight-edu tilt-card" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="edu-top-row">
+              <div class="edu-institution-info">
+                <div class="edu-logo-badge">LPU</div>
+                <div>
+                  <h3 class="edu-school-name">Lovely Professional University</h3>
+                  <p class="edu-location">Phagwara, Punjab, India</p>
+                </div>
+              </div>
+              <div class="edu-cgpa-pill">
+                <span class="cgpa-label">CGPA</span>
+                <span class="cgpa-value">9.89 <span class="cgpa-scale">/ 10.0</span></span>
+              </div>
+            </div>
+
+            <div class="edu-degree-details">
+              <h4 class="edu-degree-title">Bachelor of Technology (B.Tech) — Computer Science &amp; Engineering</h4>
+              <span class="edu-duration">2025 – Present</span>
+            </div>
+
+            <p class="edu-description">
+              Achieved an outstanding <strong>9.89 / 10 CGPA</strong>, ranking among the top tier of students. 
+              Coursework centers on Object-Oriented Programming, Data Structures &amp; Algorithms, Database Management Systems, 
+              Operating Systems, and Computer Networks.
+            </p>
+
+            <div class="edu-highlights">
+              <span class="edu-chip">Academic Excellence Tier</span>
+              <span class="edu-chip">Dean's Honor Benchmark</span>
+              <span class="edu-chip">Computer Science Core</span>
+            </div>
+          </div>
+
+          <!-- Education 2: Kendriya Vidyalaya No. 2 Ambala -->
+          <div class="education-card tilt-card" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="edu-top-row">
+              <div class="edu-institution-info">
+                <div class="edu-logo-badge badge-kv">KV</div>
+                <div>
+                  <h3 class="edu-school-name">PM Shree Kendriya Vidyalaya No. 2</h3>
+                  <p class="edu-location">Ambala Cantt, Haryana, India</p>
+                </div>
+              </div>
+              <div class="edu-cgpa-pill">
+                <span class="cgpa-label">Score</span>
+                <span class="cgpa-value">90.6%</span>
+              </div>
+            </div>
+
+            <div class="edu-degree-details">
+              <h4 class="edu-degree-title">Higher Secondary Education (Class XII)</h4>
+              <span class="edu-duration">2023 – 2024</span>
+            </div>
+
+            <p class="edu-description">
+              Completed Senior Secondary education with <strong>90.6%</strong> in Science stream (Physics, Chemistry, Mathematics, Computer Science). 
+              Also secured <strong>87.6%</strong> in Secondary Education (Class X), establishing early analytical and scientific foundations.
+            </p>
+
+            <div class="edu-highlights">
+              <span class="edu-chip">Class XII: 90.6%</span>
+              <span class="edu-chip">Class X: 87.6%</span>
+              <span class="edu-chip">Science &amp; Mathematics</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT & TRANSMISSION STATION -->
+    <section id="contact" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">09 // TRANSMISSION STATION</span>
+          <h2 class="section-title">Let’s Build Something<br><span class="gradient-text-cyan">Remarkable Together</span></h2>
+          <p class="section-desc">
+            Open for software engineering internships, developer roles, and open-source collaborations.
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          
+          <!-- Left: Contact Channels -->
+          <div class="contact-channels">
+            <h3 class="channels-heading">Direct Telemetry Channels</h3>
+            <p class="channels-sub">
+              Have an opening, an interesting systems problem, or want to discuss backend architectures? Reach out directly.
+            </p>
+
+            <div class="channel-card tilt-card" data-tilt data-cursor="card">
+              <div class="channel-icon-box">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div class="channel-details">
+                <span class="channel-label">EMAIL ADDRESS</span>
+                <a href="mailto:kumar.r.070706@gmail.com" class="channel-value" data-cursor="link">kumar.r.070706@gmail.com</a>
+              </div>
+              <button class="channel-copy-btn" data-copy="kumar.r.070706@gmail.com" title="Copy Email" data-cursor="button">
+                <span>Copy</span>
+              </button>
+            </div>
+
+            <div class="channel-card tilt-card" data-tilt data-cursor="card">
+              <div class="channel-icon-box">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+              </div>
+              <div class="channel-details">
+                <span class="channel-label">TELEPHONE / WHATSAPP</span>
+                <a href="tel:+919306208755" class="channel-value" data-cursor="link">+91-9306208755</a>
+              </div>
+              <button class="channel-copy-btn" data-copy="+919306208755" title="Copy Phone" data-cursor="button">
+                <span>Copy</span>
+              </button>
+            </div>
+
+            <div class="channel-card tilt-card" data-tilt data-cursor="card">
+              <div class="channel-icon-box">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+              </div>
+              <div class="channel-details">
+                <span class="channel-label">GITHUB REPOSITORIES</span>
+                <a href="https://github.com/rishabhkumaar" target="_blank" rel="noopener noreferrer" class="channel-value" data-cursor="link">github.com/rishabhkumaar</a>
+              </div>
+              <a href="https://github.com/rishabhkumaar" target="_blank" rel="noopener noreferrer" class="channel-copy-btn" data-cursor="button">
+                <span>Visit</span>
+              </a>
+            </div>
+
+            <div class="channel-card tilt-card" data-tilt data-cursor="card">
+              <div class="channel-icon-box">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.6 1.6 0 1 0-.01-3.2 1.6 1.6 0 0 0 .01 3.2m1.4 9.74v-8.37H5.06v8.37h2.8z"/>
+                </svg>
+              </div>
+              <div class="channel-details">
+                <span class="channel-label">LINKEDIN NETWORK</span>
+                <a href="https://linkedin.com/in/rishabhkumaar" target="_blank" rel="noopener noreferrer" class="channel-value" data-cursor="link">linkedin.com/in/rishabhkumaar</a>
+              </div>
+              <a href="https://linkedin.com/in/rishabhkumaar" target="_blank" rel="noopener noreferrer" class="channel-copy-btn" data-cursor="button">
+                <span>Connect</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Message Dispatch Form -->
+          <div class="contact-form-card tilt-card" data-tilt data-cursor="card">
+            <div class="hud-glare"></div>
+            <div class="form-header">
+              <span class="form-tag">ENCRYPTED DISPATCH // MESSAGE TRANSMITTER</span>
+            </div>
+
+            <form id="contactForm" class="contact-form" novalidate>
+              <div class="form-group">
+                <label for="senderName" class="form-label">Your Name / Organization</label>
+                <input type="text" id="senderName" class="form-input" placeholder="e.g. Alex Vance, Stripe" required>
+                <span class="form-error" id="nameError">Please enter your name.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="senderEmail" class="form-label">Your Direct Email</label>
+                <input type="email" id="senderEmail" class="form-input" placeholder="e.g. alex@company.com" required>
+                <span class="form-error" id="emailError">Please enter a valid email address.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="messageSubject" class="form-label">Subject / Purpose</label>
+                <input type="text" id="messageSubject" class="form-input" placeholder="e.g. Software Engineering Opportunity / Systems Discussion" required>
+                <span class="form-error" id="subjectError">Please provide a subject.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="messageBody" class="form-label">Transmission Message</label>
+                <textarea id="messageBody" rows="4" class="form-input" placeholder="Detail your project or engineering opportunity..." required></textarea>
+                <span class="form-error" id="bodyError">Message body cannot be empty.</span>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-full" id="submitFormBtn" data-cursor="button">
+                <span>Dispatch Transmission</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                </svg>
+              </button>
+
+              <div id="formStatusNotice" class="form-status-notice hidden">
+                <span class="notice-icon">✓</span>
+                <span class="notice-text">Message ready. Opening your default mail client with prefilled transmission...</span>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <span class="footer-brand">RISHABH KUMAR</span>
+        <p class="footer-desc">Computer Science Undergraduate • Software Engineer • Systems Architect</p>
+        <p class="footer-copy">Crafted with precision. Built with Vanilla CSS, Canvas Math &amp; Zero Bloat.</p>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-links">
+          <a href="#hero" data-cursor="link">Back to Top ↑</a>
+          <a href="personal/cv.pdf" target="_blank" download="Rishabh_Kumar_CV.pdf" data-cursor="link">Download Resume</a>
+          <a href="https://github.com/rishabhkumaar" target="_blank" rel="noopener noreferrer" data-cursor="link">GitHub</a>
+          <a href="https://linkedin.com/in/rishabhkumaar" target="_blank" rel="noopener noreferrer" data-cursor="link">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE DEVELOPER TERMINAL HUD MODAL -->
+  <div id="terminalModal" class="terminal-modal-overlay hidden" aria-hidden="true" role="dialog">
+    <div class="terminal-window">
+      <div class="term-titlebar">
+        <div class="term-controls">
+          <button class="term-btn term-close" id="closeTermBtn" aria-label="Close Terminal" data-cursor="button"></button>
+          <button class="term-btn term-minimize"></button>
+          <button class="term-btn term-maximize"></button>
+        </div>
+        <div class="term-title">rishabh@core-system:~ (interactive zsh hud)</div>
+        <div class="term-actions">
+          <span class="term-badge">STATUS: CONNECTED // TLS 1.3</span>
+        </div>
+      </div>
+
+      <div class="terminal-screen" id="terminalOutput">
+        <div class="term-welcome-msg">
+          <pre class="term-ascii">
+ ____  _     _           _     _      _  __                             
+|  _ \(_)___| |__   __ _| |__ | |__  | |/ /   _ _ __ ___   __ _ _ __ 
+| |_) | / __| '_ \ / _` | '_ \| '_ \ | ' / | | | '_ ` _ \ / _` | '__|
+|  _ <| \__ \ | | | (_| | | | | | | || . \ |_| | | | | | | (_| | |   
+|_| \_\_|___/_| |_|\__,_|_| |_|_| |_||_|\_\__,_|_| |_| |_|\__,_|_|   
+          </pre>
+          <p class="text-cyan">Rishabh Kumar // Interactive Engineering HUD v4.0</p>
+          <p class="text-muted">Type <span class="term-highlight">help</span> to view available commands. Press <span class="term-highlight">ESC</span> to close.</p>
+        </div>
+      </div>
+
+      <div class="terminal-input-bar">
+        <span class="term-user-prompt">guest@rishabh:~$</span>
+        <input type="text" id="terminalCliInput" class="term-cli-input" placeholder="type 'help'..." autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATE LIGHTBOX MODAL -->
+  <div id="certModal" class="cert-modal-overlay hidden" aria-hidden="true" role="dialog">
+    <div class="cert-modal-dialog">
+      <div class="cert-modal-header">
+        <h3 id="certModalTitle" class="cert-modal-title">Certificate Inspection</h3>
+        <button id="closeCertModalBtn" class="close-modal-btn" aria-label="Close Modal" data-cursor="button">&times;</button>
+      </div>
+      <div class="cert-modal-content">
+        <img id="certModalImg" src="" alt="Certificate View" class="cert-full-img">
+      </div>
+    </div>
+  </div>
+
+  <!-- COMIC GRAPHIC NOVEL ODYSSEY MODAL (6 CHAPTERS) -->
+  <div id="comicModal" class="comic-modal-overlay hidden" aria-hidden="true" role="dialog">
+    <div class="comic-modal-dialog">
+      <div class="comic-modal-header">
+        <div class="comic-header-left">
+          <span class="comic-eyebrow">ILLUSTRATED ODYSSEY</span>
+          <h3 id="comicModalTitle" class="comic-modal-title">Chapter 1: The Blank Screen</h3>
+        </div>
+        <div class="comic-header-controls">
+          <span id="comicPageCounter" class="comic-counter">1 / 6</span>
+          <button id="closeComicModalBtn" class="close-modal-btn" aria-label="Close Modal" data-cursor="button">&times;</button>
+        </div>
+      </div>
+
+      <div class="comic-modal-body">
+        <button id="comicPrevBtn" class="comic-nav-arrow arrow-left" aria-label="Previous Chapter" data-cursor="button">‹</button>
+        <div class="comic-image-container">
+          <img id="comicModalImg" src="comic/1.png" alt="Comic Story Panel" class="comic-panel-img">
+        </div>
+        <button id="comicNextBtn" class="comic-nav-arrow arrow-right" aria-label="Next Chapter" data-cursor="button">›</button>
+      </div>
+
+      <div class="comic-modal-footer">
+        <p id="comicCaption" class="comic-caption-text">
+          "For me, a blank screen isn't empty. It's an opportunity to build." — The Blank Screen.
+        </p>
+        <div class="comic-thumbnails" id="comicThumbs">
+          <button class="thumb-btn active" data-index="0" data-cursor="button">Ch 1</button>
+          <button class="thumb-btn" data-index="1" data-cursor="button">Ch 2</button>
+          <button class="thumb-btn" data-index="2" data-cursor="button">Ch 3</button>
+          <button class="thumb-btn" data-index="3" data-cursor="button">Ch 4</button>
+          <button class="thumb-btn" data-index="4" data-cursor="button">Ch 5</button>
+          <button class="thumb-btn" data-index="5" data-cursor="button">Ch 6</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastNotification" class="toast-popup hidden">
+    <span id="toastMessage">Copied to clipboard!</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

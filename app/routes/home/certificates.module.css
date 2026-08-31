@@ -1,0 +1,156 @@
+.certSection {
+  width: 100vw;
+  padding: var(--space4XL) 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.inner {
+  max-width: var(--maxWidthL);
+  width: 100%;
+  padding: 0 var(--spaceXL);
+}
+
+@media (max-width: 696px) {
+  .inner {
+    padding: 0 var(--spaceOuter);
+  }
+}
+
+.header {
+  margin-bottom: var(--space2XL);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--spaceM);
+  color: var(--primary);
+  font-family: var(--fontStackMono);
+  font-size: var(--fontSizeBodyS);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--spaceM);
+}
+
+.heading {
+  margin-bottom: var(--spaceM);
+}
+
+.subheading {
+  color: var(--textLight);
+  max-width: 680px;
+  line-height: var(--lineHeightBody);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spaceXL);
+}
+
+.card {
+  background: color-mix(in lab, var(--backgroundLight) 80%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--durationM) var(--bezierFastoutSlowin),
+              border-color var(--durationM) ease,
+              box-shadow var(--durationM) ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: 0 12px 32px -10px color-mix(in lab, var(--primary) 25%, transparent);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background: #0d1117;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.certImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--durationL) ease;
+}
+
+.card:hover .certImage {
+  transform: scale(1.05);
+}
+
+.cardContent {
+  padding: var(--spaceL);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.issuer {
+  font-family: var(--fontStackMono);
+  font-size: 11px;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.title {
+  font-size: var(--fontSizeBodyL);
+  font-weight: var(--fontWeightBold);
+  color: var(--textTitle);
+  margin-bottom: var(--spaceS);
+}
+
+.tags {
+  display: flex;
+  gap: var(--spaceS);
+  margin-bottom: var(--spaceM);
+}
+
+.tag {
+  font-size: 11px;
+  font-family: var(--fontStackMono);
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: color-mix(in lab, var(--primary) 12%, transparent);
+  color: var(--primary);
+}
+
+.description {
+  font-size: var(--fontSizeBodyS);
+  color: var(--textLight);
+  line-height: 1.5;
+  margin-bottom: var(--spaceM);
+  flex-grow: 1;
+}
+
+.inspectLink {
+  color: var(--textTitle);
+  font-family: var(--fontStackMono);
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  border-top: 1px dashed var(--border);
+  padding-top: var(--spaceS);
+  transition: color var(--durationS) ease;
+}
+
+.inspectLink:hover {
+  color: var(--primary);
+}

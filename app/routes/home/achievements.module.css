@@ -1,0 +1,208 @@
+.achievementsSection {
+  width: 100vw;
+  padding: var(--space4XL) 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background: color-mix(in lab, var(--backgroundLight) 30%, transparent);
+}
+
+.inner {
+  max-width: var(--maxWidthL);
+  width: 100%;
+  padding: 0 var(--spaceXL);
+}
+
+@media (max-width: 696px) {
+  .inner {
+    padding: 0 var(--spaceOuter);
+  }
+}
+
+.header {
+  margin-bottom: var(--space2XL);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--spaceM);
+  color: var(--primary);
+  font-family: var(--fontStackMono);
+  font-size: var(--fontSizeBodyS);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--spaceM);
+}
+
+.heading {
+  margin-bottom: var(--spaceM);
+}
+
+.subheading {
+  color: var(--textLight);
+  max-width: 680px;
+  line-height: var(--lineHeightBody);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spaceXL);
+}
+
+.card {
+  background: color-mix(in lab, var(--backgroundLight) 80%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: var(--spaceXL);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform var(--durationM) var(--bezierFastoutSlowin),
+              border-color var(--durationM) ease,
+              box-shadow var(--durationM) ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: 0 10px 30px -10px color-mix(in lab, var(--primary) 25%, transparent);
+}
+
+.statNumber {
+  font-size: 3.5rem;
+  font-weight: var(--fontWeightBold);
+  font-family: var(--fontStackMono);
+  line-height: 1;
+  color: var(--primary);
+  margin-bottom: var(--spaceM);
+}
+
+.cardTitle {
+  font-size: var(--fontSizeBodyL);
+  font-weight: var(--fontWeightBold);
+  color: var(--textTitle);
+  margin-bottom: var(--spaceS);
+}
+
+.cardText {
+  font-size: var(--fontSizeBodyS);
+  color: var(--textLight);
+  line-height: 1.6;
+  margin-bottom: var(--spaceL);
+  flex-grow: 1;
+}
+
+.badgesList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaceS);
+  margin-bottom: var(--spaceL);
+}
+
+.badgeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: color-mix(in lab, var(--primary) 6%, transparent);
+  border: 1px solid color-mix(in lab, var(--primary) 15%, transparent);
+  border-radius: 4px;
+}
+
+.badgeName {
+  font-weight: var(--fontWeightMedium);
+  color: var(--textTitle);
+  font-size: var(--fontSizeBodyS);
+}
+
+.badgeTier {
+  font-family: var(--fontStackMono);
+  font-size: 11px;
+  color: var(--primary);
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  gap: var(--spaceS);
+  font-family: var(--fontStackMono);
+  font-size: 11px;
+  color: var(--primary);
+  border-top: 1px dashed var(--border);
+  padding-top: var(--spaceM);
+}
+
+/* Education Grid */
+.eduGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spaceXL);
+  margin-top: var(--space2XL);
+}
+
+.eduCard {
+  background: color-mix(in lab, var(--backgroundLight) 80%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: var(--spaceXL);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--durationM) var(--bezierFastoutSlowin),
+              border-color var(--durationM) ease;
+}
+
+.eduCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+}
+
+.eduHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spaceM);
+}
+
+.eduSchool {
+  font-size: var(--fontSizeBodyL);
+  font-weight: var(--fontWeightBold);
+  color: var(--textTitle);
+  margin: 0;
+}
+
+.eduLocation {
+  font-size: var(--fontSizeBodyS);
+  color: var(--textLight);
+}
+
+.eduScore {
+  background: color-mix(in lab, var(--primary) 15%, transparent);
+  border: 1px solid color-mix(in lab, var(--primary) 30%, transparent);
+  color: var(--primary);
+  font-family: var(--fontStackMono);
+  font-weight: var(--fontWeightBold);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: var(--fontSizeBodyS);
+  white-space: nowrap;
+}
+
+.eduDegree {
+  font-weight: var(--fontWeightMedium);
+  color: var(--primary);
+  font-size: var(--fontSizeBodyM);
+  margin-bottom: 4px;
+}
+
+.eduDuration {
+  font-family: var(--fontStackMono);
+  font-size: 12px;
+  color: var(--textLight);
+  margin-bottom: var(--spaceM);
+}

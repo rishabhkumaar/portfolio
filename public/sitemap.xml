@@ -1,0 +1,26 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://rishabhkumar.dev/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://rishabhkumar.dev/contact/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://rishabhkumar.dev/uses/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://rishabhkumar.dev/projects/smart-sparrow/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://rishabhkumar.dev/projects/slice/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://rishabhkumar.dev/projects/volkihar-knight/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+</urlset>
