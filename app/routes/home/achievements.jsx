@@ -1,126 +1,232 @@
+import { useState } from 'react';
 import { Heading } from '~/components/heading';
 import { Text } from '~/components/text';
-import { Divider } from '~/components/divider';
 import { DecoderText } from '~/components/decoder-text';
 import styles from './achievements.module.css';
 
-export function Achievements({ id, sectionRef }) {
+const CERTIFICATES = [
+  {
+    title: 'Modern Database Systems (CS403)',
+    issuer: 'Saylor Academy',
+    badge: 'Grade: 86% · 29 hrs',
+    description: 'Relational schema design, SQL query optimizations, ACID transaction guarantees, and indexing.',
+    img: '/certificates/cs403-dbms.png',
+  },
+  {
+    title: 'Computer Programming (iamneo)',
+    issuer: 'LPU / iamneo',
+    badge: '150 hrs · NeoPat Assessment',
+    description: 'Intensive algorithmic problem solving, memory models, data structures, and timed execution.',
+    img: '/certificates/computer-programming.png',
+  },
+  {
+    title: 'Programming Fundamentals using Python',
+    issuer: 'Infosys Springboard',
+    badge: 'Enterprise Certification',
+    description: 'Python design patterns, modular architecture, algorithmic logic, and data processing.',
+    img: '/certificates/python-basic.png',
+  },
+  {
+    title: 'Introduction to Python (CS105)',
+    issuer: 'Saylor Academy',
+    badge: '100% Perfect Score',
+    description: 'Perfect score mastery in Python computational execution, data structures, and standard libraries.',
+    img: '/certificates/cs105-python.png',
+  },
+  {
+    title: 'OpenAI Hackathon Engineering',
+    issuer: 'OpenAI / Node',
+    badge: 'AI Systems Integration',
+    description: 'Autonomous workflows, OpenAI API integrations, streaming responses, and prompt systems.',
+    img: '/certificates/openai-hack-node.png',
+  },
+  {
+    title: 'Python Programming (Part 1 & 2)',
+    issuer: 'Cisco Networking Academy',
+    badge: 'Core Modules Verified',
+    description: 'Algorithms, data collections, object-oriented semantics, and functional paradigms.',
+    img: '/certificates/python-part-1.jpg',
+  },
+];
+
+export function ProofAndResume({ id, sectionRef }) {
+  const [selectedCert, setSelectedCert] = useState(null);
+
   return (
-    <section id={id} ref={sectionRef} className={styles.achievementsSection}>
-      <div className={styles.inner}>
+    <section id={id} ref={sectionRef} className={styles.proofSection} tabIndex={-1}>
+      <div className={styles.container}>
+        {/* Presentation Slide Header */}
         <header className={styles.header}>
-          <div className={styles.eyebrow}>
-            <Divider notchWidth="48px" notchHeight="6px" />
-            <span>06 // Proof of Progress & Academic Rigor</span>
+          <div className={styles.slideMarker}>
+            <span className={styles.chapterNum}>07 // PROOF</span>
+            <span className={styles.chapterTag}>RIGOR &amp; ACCREDITATION</span>
           </div>
-          <Heading level={2} as="h2" className={styles.heading}>
-            <DecoderText text="Consistent Problem Solving & Honors" />
+
+          <Heading level={2} as="h2" className={styles.title}>
+            <DecoderText text="Verified Rigor, Honors &amp; Credentials" />
           </Heading>
-          <Text size="l" as="p" className={styles.subheading}>
-            Pairing high academic excellence with sustained daily problem-solving across competitive programming platforms.
+
+          <Text size="l" as="p" className={styles.subtitle}>
+            Academic standing, competitive problem-solving endurance, and industry certifications backed by tangible proof.
           </Text>
         </header>
 
-        <div className={styles.grid}>
-          {/* Card 1: 200+ Problems */}
-          <div className={styles.card}>
-            <div className={styles.statNumber}>200+</div>
-            <h3 className={styles.cardTitle}>Coding Problems Solved</h3>
-            <p className={styles.cardText}>
-              Solved across LeetCode, HackerRank, and university neoPat platforms. Strong focus on asymptotic complexity, algorithmic efficiency, dynamic programming, and core graph traversals.
-            </p>
-            <div className={styles.cardFooter}>
-              <span>Continuous Practice Discipline</span>
+        {/* Big Telemetry Numbers Grid */}
+        <div className={styles.telemetryGrid}>
+          <div className={styles.statCard}>
+            <div className={styles.statTop}>
+              <span className={styles.statNumber}>9.89</span>
+              <span className={styles.statScale}>/10</span>
             </div>
+            <h3 className={styles.statTitle}>CGPA at Lovely Professional University</h3>
+            <p className={styles.statSub}>
+              B.Tech in Computer Science &amp; Engineering. Maintaining highest tier academic excellence.
+            </p>
           </div>
 
-          {/* Card 2: HackerRank */}
-          <div className={styles.card}>
-            <div className={styles.badgesList}>
-              <div className={styles.badgeRow}>
-                <span className={styles.badgeName}>🥇 Python</span>
-                <span className={styles.badgeTier}>Gold Badge</span>
-              </div>
-              <div className={styles.badgeRow}>
-                <span className={styles.badgeName}>🥈 C Language</span>
-                <span className={styles.badgeTier}>Silver Badge</span>
-              </div>
-              <div className={styles.badgeRow}>
-                <span className={styles.badgeName}>🥈 SQL Queries</span>
-                <span className={styles.badgeTier}>Silver Badge</span>
-              </div>
+          <div className={styles.statCard}>
+            <div className={styles.statTop}>
+              <span className={styles.statNumber}>200+</span>
+              <span className={styles.statScale}>Solves</span>
             </div>
-            <h3 className={styles.cardTitle}>HackerRank Accreditations</h3>
-            <p className={styles.cardText}>
-              Demonstrated verified proficiency in Python data structures, memory-conscious C programming, and relational SQL join operations.
+            <h3 className={styles.statTitle}>Algorithmic Problems</h3>
+            <p className={styles.statSub}>
+              Solved across LeetCode, HackerRank, and neoPat platforms with continuous daily practice.
             </p>
-            <div className={styles.cardFooter}>
-              <span>HackerRank Verified</span>
-            </div>
           </div>
 
-          {/* Card 3: LeetCode */}
-          <div className={styles.card}>
-            <div className={styles.badgesList}>
-              <div className={styles.badgeRow}>
-                <span className={styles.badgeName}>🏅 50 Days Badge</span>
-                <span className={styles.badgeTier}>Daily Streak</span>
-              </div>
-              <div className={styles.badgeRow}>
-                <span className={styles.badgeName}>🔷 Mathematical I</span>
-                <span className={styles.badgeTier}>Number Theory</span>
-              </div>
-              <div className={styles.badgeRow}>
-                <span className={styles.badgeName}>📊 Data Navigator</span>
-                <span className={styles.badgeTier}>Data Structures</span>
-              </div>
+          <div className={styles.statCard}>
+            <div className={styles.statTop}>
+              <span className={styles.statNumber}>Gold</span>
+              <span className={styles.statScale}>Python</span>
             </div>
-            <h3 className={styles.cardTitle}>LeetCode Milestones</h3>
-            <p className={styles.cardText}>
-              Proof of sustained discipline, analytical stamina, and continuous problem-solving practice across algorithm categories.
+            <h3 className={styles.statTitle}>HackerRank Gold Badge</h3>
+            <p className={styles.statSub}>
+              Verified proficiency in Python data structures, plus HackerRank Silver in C Language and SQL Queries.
             </p>
-            <div className={styles.cardFooter}>
-              <span>LeetCode Verified Badges</span>
+          </div>
+
+          <div className={styles.statCard}>
+            <div className={styles.statTop}>
+              <span className={styles.statNumber}>50</span>
+              <span className={styles.statScale}>Days</span>
             </div>
+            <h3 className={styles.statTitle}>LeetCode Streak Badge</h3>
+            <p className={styles.statSub}>
+              Consistent algorithmic discipline, data structure navigations, and mathematical reasoning.
+            </p>
           </div>
         </div>
 
-        {/* Formal Education Grid */}
-        <div className={styles.eduGrid}>
-          {/* LPU */}
-          <div className={styles.eduCard}>
-            <div className={styles.eduHeader}>
-              <div>
-                <h3 className={styles.eduSchool}>Lovely Professional University</h3>
-                <span className={styles.eduLocation}>Phagwara, Punjab, India</span>
-              </div>
-              <span className={styles.eduScore}>CGPA: 9.89 / 10</span>
-            </div>
-            <div className={styles.eduDegree}>
-              Bachelor of Technology (B.Tech) — Computer Science &amp; Engineering
-            </div>
-            <div className={styles.eduDuration}>2025 – Present</div>
-            <p className={styles.cardText}>
-              Standing in the top tier of students with an outstanding <strong>9.89 CGPA</strong>. Coursework covers Object-Oriented Programming, Data Structures, Relational Database Management Systems, and Computer Networks.
-            </p>
-          </div>
+        {/* Certificate Gallery Header */}
+        <div className={styles.certHeader}>
+          <h3 className={styles.certSectionTitle}>Interactive Certificate Gallery</h3>
+          <p className={styles.certSectionSub}>Click any certificate to inspect verified accreditation records.</p>
+        </div>
 
-          {/* PM Shree KV 2 */}
-          <div className={styles.eduCard}>
-            <div className={styles.eduHeader}>
-              <div>
-                <h3 className={styles.eduSchool}>PM Shree KV No. 2</h3>
-                <span className={styles.eduLocation}>Ambala Cantt, Haryana, India</span>
+        {/* Certificate Cards Grid */}
+        <div className={styles.certGrid}>
+          {CERTIFICATES.map(cert => (
+            <div
+              key={cert.title}
+              className={styles.certCard}
+              onClick={() => setSelectedCert(cert)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={e => e.key === 'Enter' && setSelectedCert(cert)}
+            >
+              <div className={styles.certImageWrap}>
+                <img src={cert.img} alt={cert.title} className={styles.certImg} loading="lazy" />
+                <div className={styles.certOverlay}>
+                  <span>Click to Inspect 🔍</span>
+                </div>
               </div>
-              <span className={styles.eduScore}>Score: 90.6%</span>
+              <div className={styles.certBody}>
+                <span className={styles.certIssuer}>{cert.issuer}</span>
+                <h4 className={styles.certCardTitle}>{cert.title}</h4>
+                <span className={styles.certBadge}>{cert.badge}</span>
+                <p className={styles.certDesc}>{cert.description}</p>
+              </div>
             </div>
-            <div className={styles.eduDegree}>
-              Higher Secondary Education (Class XII — PCM + CS)
+          ))}
+        </div>
+
+        {/* Inspection Modal */}
+        {selectedCert && (
+          <div className={styles.modalOverlay} onClick={() => setSelectedCert(null)}>
+            <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
+              <button
+                type="button"
+                className={styles.modalClose}
+                onClick={() => setSelectedCert(null)}
+                aria-label="Close modal"
+              >
+                ✕
+              </button>
+              <img src={selectedCert.img} alt={selectedCert.title} className={styles.modalImage} />
+              <div className={styles.modalFooter}>
+                <div>
+                  <h4 className={styles.modalTitle}>{selectedCert.title}</h4>
+                  <p className={styles.modalIssuer}>{selectedCert.issuer} — {selectedCert.badge}</p>
+                </div>
+                <a
+                  href={selectedCert.img}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.modalLink}
+                >
+                  Open Full Resolution ↗
+                </a>
+              </div>
             </div>
-            <div className={styles.eduDuration}>2023 – 2024</div>
-            <p className={styles.cardText}>
-              Completed Senior Secondary education in the Science stream with <strong>90.6%</strong>, preceded by <strong>87.6%</strong> in Secondary Education (Class X), establishing deep analytical foundations.
-            </p>
+          </div>
+        )}
+
+        {/* Want the Full Story? Resume Slide */}
+        <div className={styles.resumeSlide}>
+          <div className={styles.resumeInner}>
+            <div className={styles.resumeTextSide}>
+              <span className={styles.resumeTag}>THE COMPLETE SUPPORTING RECORD</span>
+              <h3 className={styles.resumeTitle}>WANT THE FULL STORY?</h3>
+              <p className={styles.resumeDesc}>
+                Download or inspect the official technical curriculum vitae detailing Rishabh Kumar's complete education, systems engineering experience, coursework, and algorithmic accreditations.
+              </p>
+              <div className={styles.resumeActions}>
+                <a
+                  href="/rishabh-kumar-resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.btnViewResume}
+                >
+                  <span>View Resume (PDF)</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                  </svg>
+                </a>
+                <a
+                  href="/rishabh-kumar-resume.pdf"
+                  download="Rishabh_Kumar_Resume.pdf"
+                  className={styles.btnDownloadResume}
+                >
+                  <span>Download PDF</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.resumePreviewSide}>
+              <div className={styles.docFrame}>
+                <div className={styles.docTop}>
+                  <span className={styles.docCircle} />
+                  <span>rishabh-kumar-resume.pdf</span>
+                </div>
+                <div className={styles.docThumb}>
+                  <img src="/cv_img_0.png" alt="Curriculum Vitae Preview" className={styles.docPreviewImg} />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,0 +1,198 @@
+.mindsetSection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: var(--space3XL) var(--spaceL);
+  background: radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 60%);
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: var(--space2XL);
+}
+
+.slideMarker {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  margin-bottom: var(--spaceM);
+}
+
+.chapterNum {
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #a78bfa;
+}
+
+.chapterTag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: var(--spaceM);
+  color: var(--textTitle);
+}
+
+.subtitle {
+  color: var(--textLight);
+  max-width: 680px;
+  line-height: 1.6;
+}
+
+/* Monolithic Stage Card */
+.stageFrame {
+  background: rgba(12, 16, 28, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 24px;
+  padding: var(--space2XL);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(139, 92, 246, 0.05);
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 640px) {
+    padding: var(--spaceL);
+  }
+}
+
+.stageTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: var(--spaceXL);
+  flex-wrap: wrap;
+}
+
+.pillarTag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #a78bfa;
+}
+
+.pillarDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #a78bfa;
+  box-shadow: 0 0 10px #a78bfa;
+}
+
+.telemetryTag {
+  font-family: monospace;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.08em;
+}
+
+.statementWrapper {
+  position: relative;
+  margin-bottom: var(--spaceL);
+}
+
+.slideBigNumber {
+  position: absolute;
+  top: -24px;
+  left: -8px;
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 900;
+  font-family: monospace;
+  color: rgba(255, 255, 255, 0.03);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.statementText {
+  font-size: clamp(1.8rem, 3.8vw, 3.2rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  letter-spacing: -0.02em;
+}
+
+.elaborationText {
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 800px;
+  margin: 0 0 var(--space2XL) 0;
+}
+
+/* Selector Bar */
+.selectorBar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: var(--spaceL);
+}
+
+.selectorButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 14px;
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+
+  &[data-active='true'] {
+    background: rgba(139, 92, 246, 0.15);
+    border-color: #a78bfa;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+  }
+}
+
+.selectorNum {
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #a78bfa;
+}
+
+.selectorLabel {
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

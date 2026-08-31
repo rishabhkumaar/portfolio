@@ -12,12 +12,15 @@ import sprTexturePlaceholder from '~/assets/spr-lesson-builder-dark-placeholder.
 import sprTexture from '~/assets/spr-lesson-builder-dark.jpg';
 import { Footer } from '~/components/footer';
 import { baseMeta } from '~/utils/meta';
+import { PresentationHUD } from '~/components/presentation-hud';
 import { Intro } from './intro';
-import { Profile } from './profile';
-import { ProjectSummary } from './project-summary';
+import { Journey } from './journey';
 import { SkillsMatrix } from './skills';
-import { Achievements } from './achievements';
-import { CertificatesShowcase } from './certificates';
+import { Mindset } from './mindset';
+import { RishourceReveal } from './rishource-reveal';
+import { ProjectSummary } from './project-summary';
+import { ProofAndResume } from './achievements';
+import { WhatsNext } from './whats-next';
 import { useEffect, useRef, useState } from 'react';
 import config from '~/config.json';
 import styles from './home.module.css';
@@ -44,35 +47,70 @@ export const links = () => {
 
 export const meta = () => {
   return baseMeta({
-    title: 'Software Engineer + Full-Stack Developer',
-    description: `Engineering portfolio of ${config.name} — Computer Science undergraduate and full-stack software engineer building distributed platforms, Discord bot systems, and web applications.`,
+    title: 'The Engineering Journey of Rishabh Kumar',
+    description: `An interactive cinematic presentation of Rishabh Kumar's software engineering journey — Computer Science undergraduate at LPU (9.89 CGPA) building distributed systems, Discord bot platforms, and resilient architectures.`,
   });
 };
 
 export const Home = () => {
   const [visibleSections, setVisibleSections] = useState([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
-  const intro = useRef();
-  const projectOne = useRef();
-  const projectTwo = useRef();
-  const projectThree = useRef();
-  const projectFour = useRef();
-  const skillsRef = useRef();
-  const achievementsRef = useRef();
-  const certificatesRef = useRef();
-  const details = useRef();
+  const [activeChapterId, setActiveChapterId] = useState('intro');
+
+  // Chapter section references
+  const introRef = useRef();
+  const journeyRef = useRef();
+  const ecosystemRef = useRef();
+  const mindsetRef = useRef();
+  const rishourceRef = useRef();
+  const projectsRef = useRef();
+  const projectCoursesRef = useRef();
+  const projectUbuntuRef = useRef();
+  const projectWeatherRef = useRef();
+  const proofRef = useRef();
+  const whatsNextRef = useRef();
+
+  const handleNavigateToChapter = chapterId => {
+    const el = document.getElementById(chapterId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
-    const sections = [
-      intro,
-      projectOne,
-      projectTwo,
-      projectThree,
-      projectFour,
-      skillsRef,
-      achievementsRef,
-      certificatesRef,
-      details,
+    const chapterMap = [
+      { id: 'intro', ref: introRef },
+      { id: 'journey', ref: journeyRef },
+      { id: 'ecosystem', ref: ecosystemRef },
+      { id: 'mindset', ref: mindsetRef },
+      { id: 'rishource', ref: rishourceRef },
+      { id: 'projects', ref: projectsRef },
+      { id: 'proof', ref: proofRef },
+      { id: 'whats-next', ref: whatsNextRef },
+    ];
+
+    const chapterObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveChapterId(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-30% 0px -40% 0px', threshold: 0.1 }
+    );
+
+    chapterMap.forEach(ch => {
+      if (ch.ref.current) {
+        chapterObserver.observe(ch.ref.current);
+      }
+    });
+
+    // Visible sections for animations
+    const animatedSections = [
+      projectCoursesRef,
+      projectUbuntuRef,
+      projectWeatherRef,
     ];
 
     const sectionObserver = new IntersectionObserver(
@@ -89,6 +127,12 @@ export const Home = () => {
       { rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
     );
 
+    animatedSections.forEach(section => {
+      if (section.current) {
+        sectionObserver.observe(section.current);
+      }
+    });
+
     const indicatorObserver = new IntersectionObserver(
       ([entry]) => {
         setScrollIndicatorHidden(!entry.isIntersecting);
@@ -96,17 +140,12 @@ export const Home = () => {
       { rootMargin: '-100% 0px 0px 0px' }
     );
 
-    sections.forEach(section => {
-      if (section.current) {
-        sectionObserver.observe(section.current);
-      }
-    });
-
-    if (intro.current) {
-      indicatorObserver.observe(intro.current);
+    if (introRef.current) {
+      indicatorObserver.observe(introRef.current);
     }
 
     return () => {
+      chapterObserver.disconnect();
       sectionObserver.disconnect();
       indicatorObserver.disconnect();
     };
@@ -114,110 +153,110 @@ export const Home = () => {
 
   return (
     <div className={styles.home}>
+      {/* Persistent Keynote Presentation HUD */}
+      <PresentationHUD
+        activeChapterId={activeChapterId}
+        onNavigate={handleNavigateToChapter}
+      />
+
+      {/* CHAPTER 01: INTRODUCTION — "This is Rishabh" */}
       <Intro
         id="intro"
-        sectionRef={intro}
+        sectionRef={introRef}
         scrollIndicatorHidden={scrollIndicatorHidden}
       />
-      <ProjectSummary
-        id="project-1"
-        sectionRef={projectOne}
-        visible={visibleSections.includes(projectOne.current)}
-        index={1}
-        title="Rishource: Sharded Discord Ecosystem & Web Platform"
-        description="Engineered a scalable Discord bot and full-stack administration platform serving community guilds. Features AutoShardedBot concurrency, a 15-minute Node-Cache TTL, modular Cogs architecture, PostgreSQL with Prisma ORM, and integrated OpenAI intelligence."
-        buttonText="Explore Rishource"
-        buttonLink="/projects/smart-sparrow"
-        model={{
-          type: 'laptop',
-          alt: 'Rishource sharded platform dashboard',
-          textures: [
-            {
-              srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
-              placeholder: sprTexturePlaceholder,
-            },
-          ],
-        }}
-      />
-      <ProjectSummary
-        id="project-2"
-        alternate
-        sectionRef={projectTwo}
-        visible={visibleSections.includes(projectTwo.current)}
-        index={2}
-        title="Courses Glance: Academic Hub & Coordinate Engine"
-        description="Architected an authenticated academic platform centralizing 9 university courses. Integrated PDF.js with lazy viewport rendering, resolution-independent coordinate text highlights, and real-time Firestore database synchronization."
-        buttonText="Explore Courses Glance"
-        buttonLink="/projects/slice"
-        model={{
-          type: 'laptop',
-          alt: 'Courses Glance interactive study platform',
-          textures: [
-            {
-              srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
-              placeholder: sliceTexturePlaceholder,
-            },
-          ],
-        }}
-      />
-      <ProjectSummary
-        id="project-3"
-        sectionRef={projectThree}
-        visible={visibleSections.includes(projectThree.current)}
-        index={3}
-        title="Portfolio 2.0: Ubuntu OS Web Operating Desktop"
-        description="Engineered an Ubuntu 20.04-inspired desktop environment in the browser with Next.js and React. Built a custom window manager supporting dragging, minimize/maximize/close states, active focus management, and dynamic z-index stacking."
-        buttonText="Explore Portfolio 2.0"
-        buttonLink="/projects/volkihar-knight"
-        model={{
-          type: 'laptop',
-          alt: 'Portfolio 2.0 browser operating environment',
-          textures: [
-            {
-              srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
-              placeholder: sprTexturePlaceholder,
-            },
-          ],
-        }}
-      />
-      <ProjectSummary
-        id="project-4"
-        alternate
-        sectionRef={projectFour}
-        visible={visibleSections.includes(projectFour.current)}
-        index={4}
-        title="Weather Now: Dual-Axis Meteorological Telemetry"
-        description="Responsive meteorological dashboard retrieving 5-day / 3-hour forecasts via OpenWeatherMap API. Visualizes 10+ atmospheric parameters with synchronized dual-axis Chart.js trajectories and rule-based climate advisories."
-        buttonText="View Telemetry Source"
-        buttonLink="https://github.com/rishabhkumaar"
-        model={{
-          type: 'phone',
-          alt: 'Weather Now meteorological telemetry app',
-          textures: [
-            {
-              srcSet: `${gamestackTexture} 375w, ${gamestackTextureLarge} 750w`,
-              placeholder: gamestackTexturePlaceholder,
-            },
-            {
-              srcSet: `${gamestackTexture2} 375w, ${gamestackTexture2Large} 750w`,
-              placeholder: gamestackTexture2Placeholder,
-            },
-          ],
-        }}
-      />
 
-      <SkillsMatrix id="skills" sectionRef={skillsRef} />
+      {/* CHAPTER 02: THE BEGINNING — Journey Timeline & Formal Education */}
+      <Journey id="journey" sectionRef={journeyRef} />
 
-      <Achievements id="achievements" sectionRef={achievementsRef} />
+      {/* CHAPTER 03: LEARNING — "I Learned by Building" Interactive Ecosystem */}
+      <SkillsMatrix id="ecosystem" sectionRef={ecosystemRef} />
 
-      <CertificatesShowcase id="certificates" sectionRef={certificatesRef} />
+      {/* CHAPTER 04: HOW I THINK — Engineering Mindset Slides */}
+      <Mindset id="mindset" sectionRef={mindsetRef} />
 
-      <Profile
-        sectionRef={details}
-        visible={visibleSections.includes(details.current)}
-        id="details"
-      />
+      {/* CHAPTER 05: RISHOURCE — Flagship Product Reveal Centerpiece */}
+      <RishourceReveal id="rishource" sectionRef={rishourceRef} />
+
+      {/* CHAPTER 06: WHAT I BUILT — Concise Visual Showcase */}
+      <div id="projects" ref={projectsRef}>
+        <ProjectSummary
+          id="project-courses"
+          sectionRef={projectCoursesRef}
+          visible={visibleSections.includes(projectCoursesRef.current)}
+          index={1}
+          title="Courses Glance: Academic Hub & Coordinate Engine"
+          description="Centralized academic study platform for 9 university courses. Integrated custom PDF.js canvas rendering, persistent normalized vector coordinate text highlights, and real-time Firestore synchronization."
+          buttonText="Explore Courses Glance"
+          buttonLink="/projects/slice"
+          model={{
+            type: 'laptop',
+            alt: 'Courses Glance interactive study platform',
+            textures: [
+              {
+                srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
+                placeholder: sliceTexturePlaceholder,
+              },
+            ],
+          }}
+        />
+
+        <ProjectSummary
+          id="project-ubuntu"
+          alternate
+          sectionRef={projectUbuntuRef}
+          visible={visibleSections.includes(projectUbuntuRef.current)}
+          index={2}
+          title="Portfolio 2.0: Ubuntu OS Web Operating Desktop"
+          description="In-browser operating environment styled after Ubuntu 20.04 Yaru dark theme. Built an extensible window management engine supporting dragging, minimizing, maximizing, focus management, and dynamic z-index stacking."
+          buttonText="Explore Portfolio 2.0"
+          buttonLink="/projects/volkihar-knight"
+          model={{
+            type: 'laptop',
+            alt: 'Portfolio 2.0 browser operating environment',
+            textures: [
+              {
+                srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
+                placeholder: sprTexturePlaceholder,
+              },
+            ],
+          }}
+        />
+
+        <ProjectSummary
+          id="project-weather"
+          sectionRef={projectWeatherRef}
+          visible={visibleSections.includes(projectWeatherRef.current)}
+          index={3}
+          title="Weather Now: Dual-Axis Meteorological Telemetry"
+          description="Real-time environmental dashboard retrieving 5-day / 3-hour forecasts with a dual-axis Chart.js visualization engine and rule-based weather recommendation heuristics."
+          buttonText="View Telemetry Source"
+          buttonLink="https://github.com/rishabhkumaar"
+          model={{
+            type: 'phone',
+            alt: 'Weather Now meteorological telemetry app',
+            textures: [
+              {
+                srcSet: `${gamestackTexture} 375w, ${gamestackTextureLarge} 750w`,
+                placeholder: gamestackTexturePlaceholder,
+              },
+              {
+                srcSet: `${gamestackTexture2} 375w, ${gamestackTexture2Large} 750w`,
+                placeholder: gamestackTexture2Placeholder,
+              },
+            ],
+          }}
+        />
+      </div>
+
+      {/* CHAPTER 07: PROOF — Telemetry, Interactive Certificates & Resume Slide */}
+      <ProofAndResume id="proof" sectionRef={proofRef} />
+
+      {/* CHAPTER 08: WHAT'S NEXT — Finale & Contact Dock */}
+      <WhatsNext id="whats-next" sectionRef={whatsNextRef} />
+
       <Footer />
     </div>
   );
 };
+

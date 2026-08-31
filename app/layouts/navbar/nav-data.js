@@ -2,30 +2,39 @@ import config from '~/config.json';
 
 export const navLinks = [
   {
-    label: 'Projects',
-    pathname: '/#project-1',
+    label: '01 Intro',
+    pathname: '/#intro',
   },
   {
-    label: 'Skills',
-    pathname: '/#skills',
+    label: '02 Journey',
+    pathname: '/#journey',
   },
   {
-    label: 'Achievements',
-    pathname: '/#achievements',
+    label: '03 Learning',
+    pathname: '/#ecosystem',
   },
   {
-    label: 'Certificates',
-    pathname: '/#certificates',
+    label: '04 Mindset',
+    pathname: '/#mindset',
   },
   {
-    label: 'About',
-    pathname: '/#details',
+    label: '05 Rishource',
+    pathname: '/#rishource',
   },
   {
-    label: 'Contact',
-    pathname: '/contact',
+    label: '06 Built',
+    pathname: '/#projects',
+  },
+  {
+    label: '07 Proof & Resume',
+    pathname: '/#proof',
+  },
+  {
+    label: "08 What's Next",
+    pathname: '/#whats-next',
   },
 ];
+
 
 export const socialLinks = [
   {

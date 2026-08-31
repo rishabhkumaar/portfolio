@@ -1,208 +1,454 @@
-.achievementsSection {
-  width: 100vw;
-  padding: var(--space4XL) 0;
+.proofSection {
+  min-height: 100vh;
   display: flex;
+  align-items: center;
   justify-content: center;
   position: relative;
-  background: color-mix(in lab, var(--backgroundLight) 30%, transparent);
+  padding: var(--space3XL) var(--spaceL);
+  background: radial-gradient(circle at 70% 30%, rgba(0, 229, 255, 0.05) 0%, transparent 60%);
 }
 
-.inner {
-  max-width: var(--maxWidthL);
+.container {
   width: 100%;
-  padding: 0 var(--spaceXL);
-}
-
-@media (max-width: 696px) {
-  .inner {
-    padding: 0 var(--spaceOuter);
-  }
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .header {
   margin-bottom: var(--space2XL);
 }
 
-.eyebrow {
-  display: flex;
+.slideMarker {
+  display: inline-flex;
   align-items: center;
-  gap: var(--spaceM);
-  color: var(--primary);
-  font-family: var(--fontStackMono);
-  font-size: var(--fontSizeBodyS);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
+  gap: 12px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(0, 229, 255, 0.06);
+  border: 1px solid rgba(0, 229, 255, 0.2);
   margin-bottom: var(--spaceM);
 }
 
-.heading {
-  margin-bottom: var(--spaceM);
+.chapterNum {
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #00e5ff;
 }
 
-.subheading {
+.chapterTag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: var(--spaceM);
+  color: var(--textTitle);
+}
+
+.subtitle {
   color: var(--textLight);
-  max-width: 680px;
-  line-height: var(--lineHeightBody);
+  max-width: 700px;
+  line-height: 1.6;
 }
 
-.grid {
+/* Monolithic Telemetry Numbers Grid */
+.telemetryGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: var(--spaceXL);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--spaceL);
+  margin-bottom: var(--space3XL);
 }
 
-.card {
-  background: color-mix(in lab, var(--backgroundLight) 80%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: var(--spaceXL);
+.statCard {
+  background: rgba(14, 20, 32, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: var(--spaceL);
+  transition: all 0.25s ease;
+
+  &:hover {
+    border-color: rgba(0, 229, 255, 0.35);
+    transform: translateY(-3px);
+  }
+}
+
+.statTop {
   display: flex;
-  flex-direction: column;
-  position: relative;
-  transition: transform var(--durationM) var(--bezierFastoutSlowin),
-              border-color var(--durationM) ease,
-              box-shadow var(--durationM) ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  border-color: var(--primary);
-  box-shadow: 0 10px 30px -10px color-mix(in lab, var(--primary) 25%, transparent);
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 8px;
 }
 
 .statNumber {
-  font-size: 3.5rem;
-  font-weight: var(--fontWeightBold);
-  font-family: var(--fontStackMono);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 900;
+  font-family: monospace;
+  color: #00e5ff;
   line-height: 1;
-  color: var(--primary);
-  margin-bottom: var(--spaceM);
 }
 
-.cardTitle {
-  font-size: var(--fontSizeBodyL);
-  font-weight: var(--fontWeightBold);
-  color: var(--textTitle);
-  margin-bottom: var(--spaceS);
+.statScale {
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
 }
 
-.cardText {
-  font-size: var(--fontSizeBodyS);
+.statTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 6px 0;
+}
+
+.statSub {
+  font-size: 13px;
   color: var(--textLight);
-  line-height: 1.6;
-  margin-bottom: var(--spaceL);
-  flex-grow: 1;
-}
-
-.badgesList {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spaceS);
-  margin-bottom: var(--spaceL);
-}
-
-.badgeRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 12px;
-  background: color-mix(in lab, var(--primary) 6%, transparent);
-  border: 1px solid color-mix(in lab, var(--primary) 15%, transparent);
-  border-radius: 4px;
-}
-
-.badgeName {
-  font-weight: var(--fontWeightMedium);
-  color: var(--textTitle);
-  font-size: var(--fontSizeBodyS);
-}
-
-.badgeTier {
-  font-family: var(--fontStackMono);
-  font-size: 11px;
-  color: var(--primary);
-}
-
-.cardFooter {
-  display: flex;
-  align-items: center;
-  gap: var(--spaceS);
-  font-family: var(--fontStackMono);
-  font-size: 11px;
-  color: var(--primary);
-  border-top: 1px dashed var(--border);
-  padding-top: var(--spaceM);
-}
-
-/* Education Grid */
-.eduGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: var(--spaceXL);
-  margin-top: var(--space2XL);
-}
-
-.eduCard {
-  background: color-mix(in lab, var(--backgroundLight) 80%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: var(--spaceXL);
-  display: flex;
-  flex-direction: column;
-  transition: transform var(--durationM) var(--bezierFastoutSlowin),
-              border-color var(--durationM) ease;
-}
-
-.eduCard:hover {
-  transform: translateY(-4px);
-  border-color: var(--primary);
-}
-
-.eduHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: var(--spaceM);
-}
-
-.eduSchool {
-  font-size: var(--fontSizeBodyL);
-  font-weight: var(--fontWeightBold);
-  color: var(--textTitle);
+  line-height: 1.5;
   margin: 0;
 }
 
-.eduLocation {
-  font-size: var(--fontSizeBodyS);
+/* Certificate Gallery */
+.certHeader {
+  margin-bottom: var(--spaceL);
+}
+
+.certSectionTitle {
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 4px 0;
+}
+
+.certSectionSub {
+  font-size: 13px;
   color: var(--textLight);
+  margin: 0;
 }
 
-.eduScore {
-  background: color-mix(in lab, var(--primary) 15%, transparent);
-  border: 1px solid color-mix(in lab, var(--primary) 30%, transparent);
-  color: var(--primary);
-  font-family: var(--fontStackMono);
-  font-weight: var(--fontWeightBold);
-  padding: 4px 12px;
-  border-radius: 4px;
-  font-size: var(--fontSizeBodyS);
-  white-space: nowrap;
+.certGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spaceL);
+  margin-bottom: var(--space3XL);
 }
 
-.eduDegree {
-  font-weight: var(--fontWeightMedium);
-  color: var(--primary);
-  font-size: var(--fontSizeBodyM);
+.certCard {
+  background: rgba(14, 18, 28, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  &:hover {
+    border-color: rgba(0, 229, 255, 0.4);
+    transform: translateY(-4px);
+
+    .certOverlay {
+      opacity: 1;
+    }
+  }
+}
+
+.certImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #090e18;
+  overflow: hidden;
+}
+
+.certImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.certOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 9, 20, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #00e5ff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.certBody {
+  padding: var(--spaceM);
+}
+
+.certIssuer {
+  font-family: monospace;
+  font-size: 11px;
+  color: #00e5ff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
   margin-bottom: 4px;
 }
 
-.eduDuration {
-  font-family: var(--fontStackMono);
-  font-size: 12px;
+.certCardTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 6px 0;
+}
+
+.certBadge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+}
+
+.certDesc {
+  font-size: 13px;
+  line-height: 1.5;
   color: var(--textLight);
-  margin-bottom: var(--spaceM);
+  margin: 0;
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(3, 7, 18, 0.85);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modalContent {
+  position: relative;
+  background: #0f172a;
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  border-radius: 16px;
+  max-width: 800px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+}
+
+.modalClose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 2;
+
+  &:hover {
+    background: #ef4444;
+  }
+}
+
+.modalImage {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  background: #000;
+  display: block;
+}
+
+.modalFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  background: #0b1120;
+}
+
+.modalTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 4px 0;
+}
+
+.modalIssuer {
+  font-size: 12px;
+  color: #00e5ff;
+  margin: 0;
+}
+
+.modalLink {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+
+  &:hover {
+    background: #00e5ff;
+    color: #000;
+  }
+}
+
+/* Resume Slide Staging */
+.resumeSlide {
+  background: rgba(12, 18, 30, 0.85);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  border-radius: 24px;
+  padding: var(--space2XL);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.resumeInner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: var(--space2XL);
+
+  @media (max-width: 840px) {
+    grid-template-columns: 1fr;
+    gap: var(--spaceXL);
+  }
+}
+
+.resumeTag {
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #00e5ff;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.resumeTitle {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 var(--spaceM) 0;
+  letter-spacing: -0.02em;
+}
+
+.resumeDesc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--textLight);
+  margin: 0 0 var(--spaceXL) 0;
+}
+
+.resumeActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btnViewResume {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  background: #00e5ff;
+  color: #050a14;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0, 229, 255, 0.4);
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 229, 255, 0.6);
+  }
+}
+
+.btnDownloadResume {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #00e5ff;
+    color: #00e5ff;
+  }
+}
+
+.docFrame {
+  background: #0b1120;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.docTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: monospace;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.docCircle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ef4444;
+}
+
+.docThumb {
+  padding: 12px;
+  background: #0f172a;
+}
+
+.docPreviewImg {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
